@@ -1,13 +1,29 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Dynamic Badges'
+description: 'Uses shields.io to create custom badges and uploads them to a gist.'
+branding:
+  icon: 'tag'
+  color: 'green'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  auth:
+    description: 'Your secret with the gist scope'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  gistID:
+    description: 'The ID of the gist to use'
+    required: true
+  label:
+    description: 'The left text of the badge'
+    required: true
+  message:
+    description: 'The right text of the badge'
+    required: true
+  labelColor:
+    description: 'The left color of the badge'
+    required: false
+    default: 'grey'
+  color:
+    description: 'The right color of the badge'
+    required: false
+    default: 'lightgrey'
 runs:
   using: 'node12'
   main: 'index.js'
