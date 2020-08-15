@@ -10,6 +10,9 @@ inputs:
   gist-id:
     description: 'The ID of the gist to use'
     required: true
+  badge-name:
+    description: 'The *.json filename of the badge data'
+    required: true
   label:
     description: 'The left text of the badge'
     required: true
