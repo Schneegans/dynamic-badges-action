@@ -1,0 +1,3 @@
+BasedOnStyle: Google
+AlignConsecutiveAssignments: true
+KeepEmptyLinesAtTheStartOfBlocks: true

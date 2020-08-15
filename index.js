@@ -8,17 +8,16 @@ try {
     message: core.getInput('message')
   };
 
-  const labelColor = core.getInput('labelColor');
-  const color = core.getInput('color');
-  const isError = core.getInput('isError');
-  const namedLogo = core.getInput('namedLogo');
-  const logoSvg = core.getInput('logoSvg');
-  const logoColor = core.getInput('logoColor');
-  const logoWidth = core.getInput('logoWidth');
+  const labelColor   = core.getInput('labelColor');
+  const color        = core.getInput('color');
+  const isError      = core.getInput('isError');
+  const namedLogo    = core.getInput('namedLogo');
+  const logoSvg      = core.getInput('logoSvg');
+  const logoColor    = core.getInput('logoColor');
+  const logoWidth    = core.getInput('logoWidth');
   const logoPosition = core.getInput('logoPosition');
-  const style = core.getInput('style');
+  const style        = core.getInput('style');
   const cacheSeconds = core.getInput('cacheSeconds');
-
 
   if (labelColor != '') {
     description.labelColor = labelColor;
@@ -60,7 +59,7 @@ try {
     description.cacheSeconds = parseInt(cacheSeconds);
   }
 
-  let data = {files: {}};
+  let data                              = {files: {}};
   data.files[core.getInput('filename')] = {
     content: JSON.stringify(description)
   };
@@ -80,14 +79,8 @@ try {
       },
       res => {
         let body = '';
-
-        res.on('data', data => {
-          body += data;
-        });
-
-        res.on('end', () => {
-          console.log('result:' + body);
-        });
+        res.on('data', data => body += data);
+        res.on('end', () => console.log('result:' + body));
       });
 
   req.write(data);
