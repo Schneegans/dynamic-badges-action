@@ -8,16 +8,16 @@ try {
     message: core.getInput('message')
   };
 
-  const labelColor = core.getInput('label-color');
+  const labelColor = core.getInput('labelColor');
   const color = core.getInput('color');
-  const isError = core.getInput('is-error');
-  const namedLogo = core.getInput('named-logo');
-  const logoSvg = core.getInput('logo-svg');
-  const logoColor = core.getInput('logo-color');
-  const logoWidth = core.getInput('logo-width');
-  const logoPosition = core.getInput('logo-position');
+  const isError = core.getInput('isError');
+  const namedLogo = core.getInput('namedLogo');
+  const logoSvg = core.getInput('logoSvg');
+  const logoColor = core.getInput('logoColor');
+  const logoWidth = core.getInput('logoWidth');
+  const logoPosition = core.getInput('logoPosition');
   const style = core.getInput('style');
-  const cacheSeconds = core.getInput('cache-seconds');
+  const cacheSeconds = core.getInput('cacheSeconds');
 
 
   if (labelColor != '') {
@@ -61,7 +61,7 @@ try {
   }
 
   let data = {files: {}};
-  data.files[core.getInput('badge-name')] = {
+  data.files[core.getInput('filename')] = {
     content: JSON.stringify(description)
   };
   data = JSON.stringify(data);
@@ -69,7 +69,7 @@ try {
   const req = http.request(
       {
         host: 'api.github.com',
-        path: '/gists/' + core.getInput('gist-id'),
+        path: '/gists/' + core.getInput('gistID'),
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
