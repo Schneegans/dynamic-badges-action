@@ -2,12 +2,18 @@ const core = require('@actions/core');
 const http = require('https');
 
 try {
-  let description = {
+
+  // This object will be stringified and uploaded to the gist. The
+  // schemaVersion, label and message attributes are always required. All others
+  // are optional and added to the content object only if they are given to the
+  // action.
+  let content = {
     schemaVersion: 1,
     label: core.getInput('label'),
     message: core.getInput('message')
   };
 
+  // Get all optional attributes and add them to the content object if given.
   const labelColor   = core.getInput('labelColor');
   const color        = core.getInput('color');
   const isError      = core.getInput('isError');
@@ -20,49 +26,53 @@ try {
   const cacheSeconds = core.getInput('cacheSeconds');
 
   if (labelColor != '') {
-    description.labelColor = labelColor;
+    content.labelColor = labelColor;
   }
 
   if (color != '') {
-    description.color = color;
+    content.color = color;
   }
 
   if (isError != '') {
-    description.isError = isError;
+    content.isError = isError;
   }
 
   if (namedLogo != '') {
-    description.namedLogo = namedLogo;
+    content.namedLogo = namedLogo;
   }
 
   if (logoSvg != '') {
-    description.logoSvg = logoSvg;
+    content.logoSvg = logoSvg;
   }
 
   if (logoColor != '') {
-    description.logoColor = logoColor;
+    content.logoColor = logoColor;
   }
 
   if (logoWidth != '') {
-    description.logoWidth = parseInt(logoWidth);
+    content.logoWidth = parseInt(logoWidth);
   }
 
   if (logoPosition != '') {
-    description.logoPosition = logoPosition;
+    content.logoPosition = logoPosition;
   }
 
   if (style != '') {
-    description.style = style;
+    content.style = style;
   }
 
   if (cacheSeconds != '') {
-    description.cacheSeconds = parseInt(cacheSeconds);
+    content.cacheSeconds = parseInt(cacheSeconds);
   }
 
-  let data = JSON.stringify({
-    files: {[core.getInput('filename')]: {content: JSON.stringify(description)}}
+  // For the POST request, the above content is set as file contents for the
+  // given filename.
+  const request = JSON.stringify({
+    files: {[core.getInput('filename')]: {content: JSON.stringify(content)}}
   });
 
+  // Perform the actual request. The user agent is required as defined in
+  // https://developer.github.com/v3/#user-agent-required
   const req = http.request(
       {
         host: 'api.github.com',
@@ -70,7 +80,7 @@ try {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Content-Length': data.length,
+          'Content-Length': request.length,
           'User-Agent': 'Schneegans',
           'Authorization': 'token ' + core.getInput('auth'),
         }
@@ -81,7 +91,7 @@ try {
         res.on('end', () => console.log('result:' + body));
       });
 
-  req.write(data);
+  req.write(request);
   req.end();
 
 } catch (error) {
