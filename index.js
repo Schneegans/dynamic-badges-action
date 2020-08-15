@@ -25,7 +25,7 @@ try {
   }
 
   if (color != '') {
-    description.labelColor = color;
+    description.color = color;
   }
 
   if (isError != '') {
