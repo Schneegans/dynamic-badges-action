@@ -22,7 +22,6 @@ inputs:
   label-color:
     description: 'The left color of the badge'
     required: false
-    default: 'grey'
   color:
     description: 'The right color of the badge'
     required: false
