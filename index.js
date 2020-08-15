@@ -66,6 +66,9 @@ try {
   };
   data = JSON.stringify(data);
 
+  console.log('test 0');
+
+
   const req = http.request(
       {
         host: 'api.github.com',
@@ -90,10 +93,12 @@ try {
         });
       });
 
+  console.log('test 1');
   req.write(data);
+  console.log('test 2');
   req.end();
 
-  console.log('all done');
+  console.log('test 3');
 
 } catch (error) {
   core.setFailed(error);
