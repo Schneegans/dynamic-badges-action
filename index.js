@@ -2,14 +2,30 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput('time', time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  const auth = core.getInput('auth');
+  const gistId = core.getInput('gist-id');
+  const badgeName = core.getInput('badge-name');
+
+  const label = core.getInput('label');
+  const message = core.getInput('message');
+  const labelColor = core.getInput('label-color');
+  const color = core.getInput('color');
+
+  let description = {schemaVersion: 1, label: label, message: message};
+
+  if (labelColor != undefined) {
+    description.labelColor = labelColor;
+  }
+
+  if (color != undefined) {
+    description.labelColor = color;
+  }
+
+  let data = {files: {}};
+  data.files[badgeName].content = JSON.stringify(description);
+
+  console.log(JSON.stringify(data));
+
 } catch (error) {
   core.setFailed(error.message);
 }
