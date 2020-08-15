@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const http = require('http');
+const http = require('https');
 
 try {
   let description = {
@@ -64,14 +64,16 @@ try {
   data.files[core.getInput('badge-name')] = {
     content: JSON.stringify(description)
   };
+  data = JSON.stringify(data);
 
   const req = http.request(
       {
         host: 'api.github.com',
         path: '/gists/' + core.getInput('gist-id'),
-        method: 'PATCH',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Content-Length': data.length,
           'Authorization': 'token ' + core.getInput('auth'),
         }
       },
@@ -84,12 +86,14 @@ try {
         });
 
         res.on('end', () => {
-          console.log(body);
+          console.log('result:' + body);
         });
       });
 
-  req.write(JSON.stringify(data));
+  req.write(data);
   req.end();
+
+  console.log('all done');
 
 } catch (error) {
   core.setFailed(error);
