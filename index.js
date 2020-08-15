@@ -2,16 +2,23 @@ const core = require('@actions/core');
 const http = require('http');
 
 try {
-  const auth = core.getInput('auth');
-  const gistId = core.getInput('gist-id');
-  const badgeName = core.getInput('badge-name');
+  let description = {
+    schemaVersion: 1,
+    label: core.getInput('label'),
+    message: core.getInput('message')
+  };
 
-  const label = core.getInput('label');
-  const message = core.getInput('message');
   const labelColor = core.getInput('label-color');
   const color = core.getInput('color');
+  const isError = core.getInput('is-error');
+  const namedLogo = core.getInput('named-logo');
+  const logoSvg = core.getInput('logo-svg');
+  const logoColor = core.getInput('logo-color');
+  const logoWidth = core.getInput('logo-width');
+  const logoPosition = core.getInput('logo-position');
+  const style = core.getInput('style');
+  const cacheSeconds = core.getInput('cache-seconds');
 
-  let description = {schemaVersion: 1, label: label, message: message};
 
   if (labelColor != undefined) {
     description.labelColor = labelColor;
@@ -21,38 +28,69 @@ try {
     description.labelColor = color;
   }
 
+  if (isError != undefined) {
+    description.isError = isError;
+  }
+
+  if (namedLogo != undefined) {
+    description.namedLogo = namedLogo;
+  }
+
+  if (logoSvg != undefined) {
+    description.logoSvg = logoSvg;
+  }
+
+  if (logoColor != undefined) {
+    description.logoColor = logoColor;
+  }
+
+  if (logoWidth != undefined) {
+    description.logoWidth = logoWidth;
+  }
+
+  if (logoPosition != undefined) {
+    description.logoPosition = logoPosition;
+  }
+
+  if (style != undefined) {
+    description.style = style;
+  }
+
+  if (cacheSeconds != undefined) {
+    description.cacheSeconds = cacheSeconds;
+  }
+
   let data = {files: {}};
-  data.files[badgeName] = {content: JSON.stringify(description)};
-
-  console.log(JSON.stringify(data));
-  console.log(gistId);
-
-  const options = {
-    host: 'api.github.com',
-    path: '/gists/' + gistId,
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'token ' + auth,
-    }
+  data.files[core.getInput('badge-name')] = {
+    content: JSON.stringify(description)
   };
 
-  const callback = (response) => {
-    let str = '';
+  const req = http.request(
+      {
+        host: 'api.github.com',
+        path: '/gists/' + core.getInput('gist-id'),
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'token ' + core.getInput('auth'),
+        }
+      },
+      res => {
+        console.log('foooo!');
+        let body = '';
 
-    response.on('data', (chunk) => {
-      str += chunk;
-    });
+        res.on('data', data => {
+          body += data;
+        });
 
-    response.on('end', () => {
-      console.log(str);
-    });
-  };
+        res.on('end', () => {
+          console.log(body);
+        });
+      });
 
-  const req = http.request(options, callback);
   req.write(JSON.stringify(data));
   req.end();
 
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(error);
 }
