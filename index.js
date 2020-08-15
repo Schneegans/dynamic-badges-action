@@ -77,6 +77,7 @@ try {
         headers: {
           'Content-Type': 'application/json',
           'Content-Length': data.length,
+          'User-Agent': 'Schneegans',
           'Authorization': 'token ' + core.getInput('auth'),
         }
       },
