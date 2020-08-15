@@ -7,7 +7,7 @@ inputs:
   auth:
     description: 'Your secret with the gist scope'
     required: true
-  gistID:
+  gist-id:
     description: 'The ID of the gist to use'
     required: true
   label:
@@ -16,7 +16,7 @@ inputs:
   message:
     description: 'The right text of the badge'
     required: true
-  labelColor:
+  label-color:
     description: 'The left color of the badge'
     required: false
     default: 'grey'
