@@ -24,7 +24,28 @@ try {
   let data = {files: {}};
   data.files[badgeName] = {content: JSON.stringify(description)};
 
-  console.log(JSON.stringify(data));
+  const options = {
+    host: 'api.github.com',
+    path: '/gists/' + gistId,
+    auth: 'token ' + auth,
+    method: 'PATCH'
+  };
+
+  const callback = (response) => {
+    let str = '';
+
+    response.on('data', (chunk) => {
+      str += chunk;
+    });
+
+    response.on('end', () => {
+      console.log(str);
+    });
+  };
+
+  const req = http.request(options, callback);
+  req.write(JSON.stringify(data));
+  req.end();
 
 } catch (error) {
   core.setFailed(error.message);
