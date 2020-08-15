@@ -24,11 +24,17 @@ try {
   let data = {files: {}};
   data.files[badgeName] = {content: JSON.stringify(description)};
 
+  console.log(JSON.stringify(data));
+  console.log(gistId);
+
   const options = {
     host: 'api.github.com',
     path: '/gists/' + gistId,
-    auth: 'token ' + auth,
-    method: 'PATCH'
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'token ' + auth,
+    }
   };
 
   const callback = (response) => {
