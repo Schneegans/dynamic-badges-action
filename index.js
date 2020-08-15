@@ -22,7 +22,7 @@ try {
   }
 
   let data = {files: {}};
-  data.files[badgeName].content = JSON.stringify(description);
+  data.files[badgeName] = {content: JSON.stringify(description)};
 
   console.log(JSON.stringify(data));
 
