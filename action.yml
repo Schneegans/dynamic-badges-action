@@ -26,7 +26,30 @@ inputs:
   color:
     description: 'The right color of the badge'
     required: false
-    default: 'lightgrey'
+  is-error:
+    description: 'The right color of the badge'
+    required: false
+  named-logo:
+    description: 'The right color of the badge'
+    required: false
+  logo-svg:
+    description: 'The right color of the badge'
+    required: false
+  logo-color:
+    description: 'The right color of the badge'
+    required: false
+  logo-width:
+    description: 'The right color of the badge'
+    required: false
+  logo-position:
+    description: 'The right color of the badge'
+    required: false
+  style:
+    description: 'The right color of the badge'
+    required: false
+  cache-seconds:
+    description: 'The right color of the badge'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
