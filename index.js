@@ -20,44 +20,44 @@ try {
   const cacheSeconds = core.getInput('cache-seconds');
 
 
-  if (labelColor != undefined) {
+  if (labelColor != '') {
     description.labelColor = labelColor;
   }
 
-  if (color != undefined) {
+  if (color != '') {
     description.labelColor = color;
   }
 
-  if (isError != undefined) {
+  if (isError != '') {
     description.isError = isError;
   }
 
-  if (namedLogo != undefined) {
+  if (namedLogo != '') {
     description.namedLogo = namedLogo;
   }
 
-  if (logoSvg != undefined) {
+  if (logoSvg != '') {
     description.logoSvg = logoSvg;
   }
 
-  if (logoColor != undefined) {
+  if (logoColor != '') {
     description.logoColor = logoColor;
   }
 
-  if (logoWidth != undefined) {
-    description.logoWidth = logoWidth;
+  if (logoWidth != '') {
+    description.logoWidth = parseInt(logoWidth);
   }
 
-  if (logoPosition != undefined) {
+  if (logoPosition != '') {
     description.logoPosition = logoPosition;
   }
 
-  if (style != undefined) {
+  if (style != '') {
     description.style = style;
   }
 
-  if (cacheSeconds != undefined) {
-    description.cacheSeconds = cacheSeconds;
+  if (cacheSeconds != '') {
+    description.cacheSeconds = parseInt(cacheSeconds);
   }
 
   let data = {files: {}};
@@ -65,9 +65,6 @@ try {
     content: JSON.stringify(description)
   };
   data = JSON.stringify(data);
-
-  console.log('test 0');
-
 
   const req = http.request(
       {
@@ -82,7 +79,6 @@ try {
         }
       },
       res => {
-        console.log('foooo!');
         let body = '';
 
         res.on('data', data => {
@@ -94,12 +90,8 @@ try {
         });
       });
 
-  console.log('test 1');
   req.write(data);
-  console.log('test 2');
   req.end();
-
-  console.log('test 3');
 
 } catch (error) {
   core.setFailed(error);
