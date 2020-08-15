@@ -59,11 +59,9 @@ try {
     description.cacheSeconds = parseInt(cacheSeconds);
   }
 
-  let data                              = {files: {}};
-  data.files[core.getInput('filename')] = {
-    content: JSON.stringify(description)
-  };
-  data = JSON.stringify(data);
+  let data = JSON.stringify({
+    files: {[core.getInput('filename')]: {content: JSON.stringify(description)}}
+  });
 
   const req = http.request(
       {
