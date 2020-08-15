@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const http = require('http');
 
 try {
   const auth = core.getInput('auth');
