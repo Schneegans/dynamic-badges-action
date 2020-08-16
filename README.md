@@ -1,5 +1,6 @@
 # Dynamic Badges Action
 
+[![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Bages/badge.svg?branch=develop)](https://github.com/Schneegans/dynamic-badges-action/actions)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
 This action allows you to create badges with [shields.io](https://shields.io) which may change with every commit which can be embedded in your README.md. To do this, this action does not need to push anything to your repository!
