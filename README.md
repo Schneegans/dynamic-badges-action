@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-This action allows you to create badges with shields.io which may change with every commit which can be embedded in your README.md. To do this, this action does not need to push anything to your repository!
+This action allows you to create badges with [shields.io](https://shields.io) which may change with every commit which can be embedded in your README.md. To do this, this action does not need to push anything to your repository!
 
 This action supports all [configuration options of shields.io/endpoint](https://shields.io/endpoint) and can be used in various ways:
 * Show custom CI statistics from GitHub actions, such as code coverage or detailed test results.
@@ -23,16 +23,16 @@ This JSON object may look like this:
 }
 ```
 
-This JSON object is then uploaded as a file to a [*gist*](https://gist.github.com/) and can be transformed to a badge like ![license](https://img.shields.io/badge/Hello-World-orange.svg) with shields.io/endpoint:
+This JSON object is then uploaded as a file to a *gist* ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and can be transformed to a badge like [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of the example hello-world-badge:
 
 ```
-https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/<user>/<gist-ID>/raw/<file>
+https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
 ```
 
 ## Configuration
 
-1. Head over to gist.github.com and create a new gist. You will need the ID of the gist (this is the long alphanumerical part of its URL) later.
-2. Navigate to github.com/settings/tokens and create a new token with the *gist* scope.
+1. Head over to [gist.github.com](https://gist.github.com/) and create a new gist. You will need the ID of the gist (this is the long alphanumerical part of its URL) later.
+2. Navigate to [github.com/settings/tokens](https://github.com/settings/tokens) and create a new token with the *gist* scope.
 3. Go to the *Secrets* page of the settings of your repository and add this token as a new secret. You can give it any name, for example `GIST_SECRET`.
 4. Add something like the following to your workflow:
 ```yml
@@ -58,7 +58,7 @@ Embed the badge with:
 
 ### Input Parameters
 
-The **Badge Parameters** are directly passed to shields.io. See the [official documentation](https://shields.io/endpoint) for more detailed explanations.
+The **Badge Parameters** are directly passed to [shields.io](https://shields.io). See the [official documentation](https://shields.io/endpoint) for more detailed explanations.
 
 Gist Parameter | Description
 ----------|------------
@@ -71,7 +71,7 @@ Gist Parameter | Description
 `labelColor` | The left color of the badge.
 `color` | The right color of the badge.
 `isError` | The color will be red and cannot be overridde.n
-`namedLogo` | A logo name from simpleicons.org.
+`namedLogo` | A logo name from [simpleicons.org](http://simpleicons.org/).
 `logoSvg` | An svg-string to be used as logo.
 `logoColor` | The color for the logo.
 `logoWidth` | The space allocated for the logo.
