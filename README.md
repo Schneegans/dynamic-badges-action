@@ -72,7 +72,7 @@ Gist Parameter | Description
 `message` | Required. The right text of the badge.
 `labelColor` | The left color of the badge.
 `color` | The right color of the badge.
-`isError` | The color will be red and cannot be overridde.n
+`isError` | The color will be red and cannot be overridden.
 `namedLogo` | A logo name from [simpleicons.org](http://simpleicons.org/).
 `logoSvg` | An svg-string to be used as logo.
 `logoColor` | The color for the logo.
@@ -125,3 +125,12 @@ Emoji | Description
 :twisted_rightwards_arrows: `:twisted_rightwards_arrows:` | When you merged a branch.
 :fire: `:fire:` | When you removed something.
 :truck: `:truck:` | When you moved / renamed something.
+
+## Version Numbers
+
+Version numbers will be assigned according to the [Semantic Versioning](https://semver.org/) scheme.
+This means, given a version number MAJOR.MINOR.PATCH, we will increment the:
+
+1. MAJOR version when we make incompatible API changes,
+2. MINOR version when we add functionality in a backwards compatible manner, and
+3. PATCH version when we make backwards compatible bug fixes.
