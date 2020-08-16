@@ -1,4 +1,4 @@
-name: Badges
+name: Build Badges
 
 on: [push]
 
@@ -13,7 +13,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@master
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: <gist-ID>
+          gistID: 2ab8f1d386f13aaebccbd87dac94068d
           filename: answer.json
           label: The Answer is
           message: ${{ env.ANSWER }}
