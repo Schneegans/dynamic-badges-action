@@ -1,7 +1,8 @@
 # Dynamic Badges Action
 
-[![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Bages/badge.svg?branch=develop)](https://github.com/Schneegans/dynamic-badges-action/actions)
+[![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Build%20Badges/badge.svg)](https://github.com/Schneegans/dynamic-badges-action/actions)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+[![market](https://img.shields.io/badge/Get_it-on_the_Marketplace-informational.svg)](https://github.com/marketplace/actions/dynamic-badges)
 
 This action allows you to create badges with [shields.io](https://shields.io) which may change with every commit which can be embedded in your README.md. To do this, this action does not need to push anything to your repository!
 
@@ -80,7 +81,7 @@ Gist Parameter | Description
 `style` | The style like "flat" or "social".
 `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).
 
-### Using Environment Variables as Parameters
+### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)
 
 A common usage pattern of this action is to create environment variables in previous steps of a job and later use them as message in your badge. This can be achieved like this:
 
