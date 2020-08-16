@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![market](https://img.shields.io/badge/Get_it-on_the_Marketplace-informational.svg)](https://github.com/marketplace/actions/dynamic-badges)
 
-This action allows you to create badges with [shields.io](https://shields.io) which may change with every commit which can be embedded in your README.md. To do this, this action does not need to push anything to your repository!
+This action allows you to create badges for your README.md with [shields.io](https://shields.io) which may change with every commit. To do this, this action does not need to push anything to your repository!
 
 This action supports all [configuration options of shields.io/endpoint](https://shields.io/endpoint) and can be used in various ways:
 * Show custom CI statistics from GitHub actions, such as code coverage or detailed test results.
@@ -25,7 +25,7 @@ This JSON object may look like this:
 }
 ```
 
-This JSON object is then uploaded as a file to a *gist* ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and can be transformed to a badge like [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of the example hello-world-badge:
+This JSON object is then uploaded as a file to a *gist* ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and can be transformed to a badge like [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of this example badge:
 
 ```
 https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
