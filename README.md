@@ -84,7 +84,7 @@ Gist Parameter | Description
 A common usage pattern of this action is to create environment variables in previous steps of a job and later use them as message in your badge. This can be achieved like this:
 
 ```yml
-- name: Calculate the Number
+- name: Get the Numbers
   run: echo "::set-env name=ANSWER::42"
 - name: Create the Badge
   uses: schneegans/dynamic-badges-action@v1
@@ -94,7 +94,7 @@ A common usage pattern of this action is to create environment variables in prev
     filename: answer.json
     label: The Answer is
     message: ${{ env.ANSWER }}
-    color: purple
+    color: green
 ```
 
 # Contributing to Dynamic Badges Action

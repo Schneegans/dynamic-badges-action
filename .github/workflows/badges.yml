@@ -1,0 +1,21 @@
+name: Badges
+
+on: [push]
+
+jobs:
+  answer-badge:
+    name: Create Answer Badge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the Numbers
+        run: echo "::set-env name=ANSWER::42"
+      - name: Create the Badge
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: <gist-ID>
+          filename: answer.json
+          label: The Answer is
+          message: ${{ env.ANSWER }}
+          color: green
+
