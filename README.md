@@ -8,7 +8,7 @@ This action allows you to create badges for your README.md with [shields.io](htt
 
 This action supports all [configuration options of shields.io/endpoint](https://shields.io/endpoint) and can be used in various ways:
 * Show custom CI statistics from GitHub actions, such as code coverage or detailed test results.
-* Show metadata of your repository such as lines of code, comment line percentage, ...
+* Show metadata of your repository such as [lines of code, comment line percentage](https://schneegans.github.io/tutorials/2020/08/16/badges), ...
 * Basically anything which may change from commit to commit!
 
 ## How Does It Work?
