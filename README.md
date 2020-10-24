@@ -87,7 +87,7 @@ A common usage pattern of this action is to create environment variables in prev
 
 ```yml
 - name: Get the Numbers
-  run: echo "::set-env name=ANSWER::42"
+  run: echo "ANSWER=42" >> $GITHUB_ENV
 - name: Create the Badge
   uses: schneegans/dynamic-badges-action@v1.0.0
   with:
