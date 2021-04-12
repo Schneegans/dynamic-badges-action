@@ -49,7 +49,7 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegan
     color: orange
 ```
 
-Once the action is executed, got to your gist.
+Once the action is executed, go to your gist.
 There should be a new file called `test.json`.
 You can view the raw content of this file at `https://gist.githubusercontent.com/<user>/<gist-ID>/raw/test.json`.
 Embed the badge with:
