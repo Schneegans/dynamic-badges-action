@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Schneegans/dynamic-badges-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.4",
+    "simple-git": "^2.41.1"
   }
 }
