@@ -5,11 +5,11 @@ branding:
   color: 'green'
 inputs:
   auth:
-    description: 'Your secret with the gist scope'
+    description: 'A GitHub token with the repo scope, or secret with the gist scope if you provide gistID'
     required: true
   gistID:
-    description: 'The ID of the gist to use'
-    required: true
+    description: 'The ID of the gist to use. If not provided, the badge data will be stored in the repository wiki'
+    required: false
   filename:
     description: 'The *.json filename of the badge data'
     required: true
