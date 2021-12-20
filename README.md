@@ -71,7 +71,7 @@ Gist Parameter | Description
 `label` | Required. The left text of the badge.
 `message` | Required. The right text of the badge.
 `labelColor` | The left color of the badge.
-`color` | The right color of the badge.
+`color` | The right color of the badge. For custom colors wrap color string in quotes `"#bf155b"`
 `isError` | The color will be red and cannot be overridden.
 `namedLogo` | A logo name from [simpleicons.org](http://simpleicons.org/).
 `logoSvg` | An svg-string to be used as logo.
