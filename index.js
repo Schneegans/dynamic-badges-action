@@ -87,11 +87,12 @@ try {
       },
       res => {
         if (res.statusCode < 200 || res.statusCode >= 400) {
-            core.setFailed('Failed to create gist, response status code: ' +  res.statusCode + ', status message: ' +  res.statusMessage);
+          core.setFailed(
+              'Failed to create gist, response status code: ' + res.statusCode +
+              ', status message: ' + res.statusMessage);
+        } else {
+          console.log('Success!');
         }
-        let body = '';
-        res.on('data', data => body += data);
-        res.on('end', () => console.log('result:' + body));
       });
 
   req.write(request);
