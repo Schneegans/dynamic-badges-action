@@ -39,7 +39,7 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegan
 4. Add something like the following to your workflow:
 ```yml
 - name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.1.0
+  uses: schneegans/dynamic-badges-action@v1.2.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
@@ -89,7 +89,7 @@ A common usage pattern of this action is to create environment variables in prev
 - name: Get the Numbers
   run: echo "ANSWER=42" >> $GITHUB_ENV
 - name: Create the Badge
-  uses: schneegans/dynamic-badges-action@v1.1.0
+  uses: schneegans/dynamic-badges-action@v1.2.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
