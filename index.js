@@ -24,12 +24,22 @@ try {
   const logoPosition = core.getInput('logoPosition');
   const style        = core.getInput('style');
   const cacheSeconds = core.getInput('cacheSeconds');
+  const minColorRange = core.getInput('minColorRange');
+  const maxColorRange = core.getInput('maxColorRange');
 
   if (labelColor != '') {
     content.labelColor = labelColor;
   }
 
-  if (color != '') {
+  if (minColorRange != '' && maxColorRange != '') {
+    var max = parseFloat(maxColorRange);
+    var min = parseFloat(minColorRange);
+    var val = parseFloat(content.message);
+    if (val < min) val = min;
+    if (val > max) val = max;
+    let hue = Math.floor((val - min) / (max - min) * 100);
+    content.color = "hsl(" + hue + ", 100%, 50%)";
+  } else if (color != '') {
     content.color = color;
   }
 

@@ -49,6 +49,12 @@ inputs:
   cacheSeconds:
     description: 'The cache lifetime in seconds (must be greater than 300)'
     required: false
+  maxColorRange:
+    description: 'Maximum value for the value passaed as message. Used to define the message color.'
+    required: false
+  minColorRange:
+    description: 'Minimum value for the value passaed as message. Used to define the message color.'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
