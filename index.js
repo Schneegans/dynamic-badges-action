@@ -34,12 +34,12 @@ try {
   }
 
   if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
-    var max = parseFloat(maxColorRange);
-    var min = parseFloat(minColorRange);
-    var val = parseFloat(valColorRange);
+    const max = parseFloat(maxColorRange);
+    const min = parseFloat(minColorRange);
+    const val = parseFloat(valColorRange);
     if (val < min) val = min;
     if (val > max) val = max;
-    var hue = 0
+    let hue = 0
     if (invertColorRange == '') {
       hue = Math.floor((val - min) / (max - min) * 100);
       content.message = val + " / " + max + " " + content.message
