@@ -42,10 +42,10 @@ try {
     var hue = 0
     if (invertColorRange == '') {
       hue = Math.floor((val - min) / (max - min) * 100);
-      message = val + " / " + max + " " + message
+      content.message = val + " / " + max + " " + content.message
     } else {
       hue = Math.floor((max - val) / (max - min) * 100);
-      message = val + " " + message
+      content.message = val + " " + content.message
     }
     content.color = "hsl(" + hue + ", 100%, 50%)";
   } else if (color != '') {
