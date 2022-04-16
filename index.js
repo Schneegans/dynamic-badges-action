@@ -45,7 +45,7 @@ try {
       content.message = val + " / " + max + " " + content.message
     } else {
       hue = Math.floor((max - val) / (max - min) * 100);
-      content.message = val + " " + content.message
+      content.message = valColorRange + " " + content.message
     }
     content.color = "hsl(" + hue + ", 100%, 50%)";
   } else if (color != '') {
