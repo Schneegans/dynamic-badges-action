@@ -24,20 +24,29 @@ try {
   const logoPosition = core.getInput('logoPosition');
   const style        = core.getInput('style');
   const cacheSeconds = core.getInput('cacheSeconds');
+  const valColorRange = core.getInput('valColorRange');
   const minColorRange = core.getInput('minColorRange');
   const maxColorRange = core.getInput('maxColorRange');
+  const invertColorRange = core.getInput('invertColorRange');
 
   if (labelColor != '') {
     content.labelColor = labelColor;
   }
 
-  if (minColorRange != '' && maxColorRange != '') {
+  if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
     var max = parseFloat(maxColorRange);
     var min = parseFloat(minColorRange);
-    var val = parseFloat(content.message);
+    var val = parseFloat(valColorRange);
     if (val < min) val = min;
     if (val > max) val = max;
-    let hue = Math.floor((val - min) / (max - min) * 100);
+    var hue = 0
+    if (invertColorRange == '') {
+      hue = Math.floor((val - min) / (max - min) * 100);
+      message = val + " / " + max + " " + message
+    } else {
+      hue = Math.floor((max - val) / (max - min) * 100);
+      message = val + " " + message
+    }
     content.color = "hsl(" + hue + ", 100%, 50%)";
   } else if (color != '') {
     content.color = color;
