@@ -61,6 +61,12 @@ inputs:
   invertColorRange:
     description: 'If the range should be inverted, causing a smaller value to have green color.'
     required: false
+  colorRangeSaturation:
+    description: 'Saturation used by the color range feature. Defaults to 100%.'
+    required: false
+  colorRangeLightness:
+    description: 'Lightness used by the color range feature. Defaults to 40%.
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
