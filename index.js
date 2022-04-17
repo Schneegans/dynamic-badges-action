@@ -28,6 +28,8 @@ try {
   const minColorRange = core.getInput('minColorRange');
   const maxColorRange = core.getInput('maxColorRange');
   const invertColorRange = core.getInput('invertColorRange');
+  const colorRangeSaturation = core.getInput('colorRangeSaturation');
+  const colorRangeLightness = core.getInput('colorRangeLightness');
 
   if (labelColor != '') {
     content.labelColor = labelColor;
@@ -39,13 +41,21 @@ try {
     const val = parseFloat(valColorRange);
     if (val < min) val = min;
     if (val > max) val = max;
-    let hue = 0
+    let hue = 0;
     if (invertColorRange == '') {
       hue = Math.floor((val - min) / (max - min) * 120);
     } else {
       hue = Math.floor((max - val) / (max - min) * 120);
     }
-    content.color = "hsl(" + hue + ", 100%, 40%)";
+    let sat = 100;
+    if(colorRangeSaturation != '') {
+      sat = colorRangeSaturation;
+    } 
+    let lig = 40;
+    if(colorRangeLightness != '') {
+      lig = colorRangeLightness;
+    }
+    content.color = "hsl(" + hue + ", " + sat +  "%, " + lig + "%)";
   } else if (color != '') {
     content.color = color;
   }
