@@ -45,7 +45,7 @@ try {
     } else {
       hue = Math.floor((max - val) / (max - min) * 120);
     }
-    content.color = "hsl(" + hue + ", 100%, 50%)";
+    content.color = "hsl(" + hue + ", 100%, 40%)";
   } else if (color != '') {
     content.color = color;
   }
