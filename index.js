@@ -41,11 +41,9 @@ try {
     if (val > max) val = max;
     let hue = 0
     if (invertColorRange == '') {
-      hue = Math.floor((val - min) / (max - min) * 100);
-      content.message = val + " / " + max + " " + content.message
+      hue = Math.floor((val - min) / (max - min) * 120);
     } else {
-      hue = Math.floor((max - val) / (max - min) * 100);
-      content.message = valColorRange + " " + content.message
+      hue = Math.floor((max - val) / (max - min) * 120);
     }
     content.color = "hsl(" + hue + ", 100%, 50%)";
   } else if (color != '') {
