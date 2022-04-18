@@ -104,7 +104,11 @@ Parameter | Description
 
 ### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)
 
-A common usage pattern of this action is to create environment variables in previous steps of a job and later use them as message in your badge. This can be achieved like this:
+A common usage pattern of this action is to create environment variables in previous steps of a job and later use them as message in your badge.
+How this can be done, is shown in the following example.
+
+This example also shows how to use the automatic color range feature: If the answer is <= 0, the badge will be red, if it's >= 100 it will be green.
+For all values in between, the color will be interpolated.
 
 ```yml
 - name: Get the Numbers
@@ -115,9 +119,11 @@ A common usage pattern of this action is to create environment variables in prev
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
     filename: answer.json
-    label: The Answer is
-    message: ${{ env.ANSWER }}
-    color: green
+    label: The Answer
+    message: is ${{ env.ANSWER }}
+    valColorRange: ${{ env.ANSWER }}
+    maxColorRange: 100
+    minColorRange: 0
 ```
 
 ## Contributing to Dynamic Badges Action
