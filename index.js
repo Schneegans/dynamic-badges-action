@@ -13,17 +13,8 @@ try {
     message: core.getInput('message')
   };
 
-  // Get all optional attributes and add them to the content object if given.
-  const labelColor           = core.getInput('labelColor');
+  // Compute the message color based on the given inputs.
   const color                = core.getInput('color');
-  const isError              = core.getInput('isError');
-  const namedLogo            = core.getInput('namedLogo');
-  const logoSvg              = core.getInput('logoSvg');
-  const logoColor            = core.getInput('logoColor');
-  const logoWidth            = core.getInput('logoWidth');
-  const logoPosition         = core.getInput('logoPosition');
-  const style                = core.getInput('style');
-  const cacheSeconds         = core.getInput('cacheSeconds');
   const valColorRange        = core.getInput('valColorRange');
   const minColorRange        = core.getInput('minColorRange');
   const maxColorRange        = core.getInput('maxColorRange');
@@ -31,33 +22,51 @@ try {
   const colorRangeSaturation = core.getInput('colorRangeSaturation');
   const colorRangeLightness  = core.getInput('colorRangeLightness');
 
-  if (labelColor != '') {
-    content.labelColor = labelColor;
-  }
-
   if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
     const max = parseFloat(maxColorRange);
     const min = parseFloat(minColorRange);
     const val = parseFloat(valColorRange);
+
     if (val < min) val = min;
     if (val > max) val = max;
+
     let hue = 0;
     if (invertColorRange == '') {
       hue = Math.floor((val - min) / (max - min) * 120);
     } else {
       hue = Math.floor((max - val) / (max - min) * 120);
     }
+
     let sat = 100;
     if (colorRangeSaturation != '') {
-      sat = colorRangeSaturation;
+      sat = parseFloat(colorRangeSaturation);
     }
+
     let lig = 40;
     if (colorRangeLightness != '') {
-      lig = colorRangeLightness;
+      lig = parseFloat(colorRangeLightness);
     }
+
     content.color = 'hsl(' + hue + ', ' + sat + '%, ' + lig + '%)';
+
   } else if (color != '') {
+
     content.color = color;
+  }
+
+  // Get all optional attributes and add them to the content object if given.
+  const labelColor   = core.getInput('labelColor');
+  const isError      = core.getInput('isError');
+  const namedLogo    = core.getInput('namedLogo');
+  const logoSvg      = core.getInput('logoSvg');
+  const logoColor    = core.getInput('logoColor');
+  const logoWidth    = core.getInput('logoWidth');
+  const logoPosition = core.getInput('logoPosition');
+  const style        = core.getInput('style');
+  const cacheSeconds = core.getInput('cacheSeconds');
+
+  if (labelColor != '') {
+    content.labelColor = labelColor;
   }
 
   if (isError != '') {
