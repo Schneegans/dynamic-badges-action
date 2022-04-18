@@ -1,5 +1,5 @@
 name: 'Dynamic Badges'
-description: 'Creates badge descriptions to be used with shields.io/endpoint and uploads them to a gist.'
+description: 'Create badges via shields.io/endpoint for your README.md which may change with every commit.'
 branding:
   icon: 'tag'
   color: 'green'
