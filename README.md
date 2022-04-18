@@ -80,6 +80,12 @@ Gist Parameter | Description
 `logoPosition` | The position of the logo.
 `style` | The style like "flat" or "social".
 `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).
+`valColorRange` | Numerical value used to define the message color.
+`maxColorRange` | Maximum value in the range used to define the message color.
+`minColorRange` | Minimum value in the range used to define the message color.
+`invertColorRange` | If the range should be inverted, causing a smaller value to have green color.
+`colorRangeSaturation` |  Saturation used by the color range feature. Defaults to 100%.
+`colorRangeLightness` |  Lightness used by the color range feature. Defaults to 40%.
 
 ### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)
 
