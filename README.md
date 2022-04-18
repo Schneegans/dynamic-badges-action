@@ -94,10 +94,10 @@ For this, the following parameters can be used.
 
 Parameter | Description
 ----------|------------
-`valColorRange` | A numerical value used to define the message color. Usually this should be between `maxColorRange` and `minColorRange`.
-`maxColorRange` | If `valColorRange` assumes this value, the badge will be green.
-`minColorRange` | If `valColorRange` assumes this value, the badge will be red.
-`invertColorRange` | If the range should be inverted, causing a smaller value to have green color.
+`valColorRange` | A numerical value used to define the message color. Usually this should be between `maxColorRange` and `minColorRange`. This is required if you want to use the color range feature.
+`maxColorRange` | If `valColorRange` assumes this value, the badge will be green. This is required if you want to use the color range feature.
+`minColorRange` | If `valColorRange` assumes this value, the badge will be red. This is required if you want to use the color range feature.
+`invertColorRange` | If the range should be inverted, causing a smaller value to have green color. Defaults to `false`.
 `colorRangeSaturation` |  Saturation used by the color range feature. Defaults to 100.
 `colorRangeLightness` |  Lightness used by the color range feature. Defaults to 40.
 
