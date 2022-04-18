@@ -1,5 +1,13 @@
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.3.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.3.0)
+
+**Release Date:** 2022-04-18
+
+#### Changes
+
+* Added the possibility to generate the badge color automatically between red and green based on a numerical value and its bounds. Thanks to [@LucasWolfgang](https://github.com/LucasWolfgang) for this contribution!
+
 ## [Dynamic Badges Action 1.2.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.2.0)
 
 **Release Date:** 2022-03-26
