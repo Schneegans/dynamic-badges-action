@@ -50,22 +50,22 @@ inputs:
     description: 'The cache lifetime in seconds (must be greater than 300)'
     required: false
   valColorRange:
-    description: 'Numerical value used to define the message color.'
+    description: 'A numerical value used to define the message color. Usually this should be between maxColorRange and minColorRange.'
     required: false
   maxColorRange:
-    description: 'Maximum value in the range used to define the message color.'
+    description: 'If valColorRange assumes this value, the badge will be green.'
     required: false
   minColorRange:
-    description: 'Minimum value in the range used to define the message color.'
+    description: 'If valColorRange assumes this value, the badge will be red.'
     required: false
   invertColorRange:
     description: 'If the range should be inverted, causing a smaller value to have green color.'
     required: false
   colorRangeSaturation:
-    description: 'Saturation used by the color range feature. Defaults to 100%.'
+    description: 'Saturation used by the color range feature. Defaults to 100.'
     required: false
   colorRangeLightness:
-    description: 'Lightness used by the color range feature. Defaults to 40%.'
+    description: 'Lightness used by the color range feature. Defaults to 40.'
     required: false
 runs:
   using: 'node12'

@@ -58,20 +58,26 @@ Embed the badge with:
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/<user>/<gist-ID>/raw/test.json)
 ```
 
-### Input Parameters
+### Required Input Parameters
 
-The **Badge Parameters** are directly passed to [shields.io](https://shields.io). See the [official documentation](https://shields.io/endpoint) for more detailed explanations.
-
-Gist Parameter | Description
+Parameter | Description
 ----------|------------
-`auth` | Required. A secret token with the *gist* scope.
-`gistID` | Required. The ID of the target gist. Something like `8f6459c2417de7534f64d98360dde866`.
-`filename` | Required. The target filename - each gist may contain several files. This should have the `.json` extension.
-**Badge Parameter** | **Description**
+`auth` | A secret token with the *gist* scope.
+`gistID` | The ID of the target gist. Something like `8f6459c2417de7534f64d98360dde866`.
+`filename` | The target filename - each gist may contain several files. This should have the `.json` extension.
+
+
+### Shields.io Parameters (optional)
+
+All these parameters are optional.
+They are directly passed to [shields.io](https://shields.io). See the [official documentation](https://shields.io/endpoint) for more detailed explanations.
+
+Parameter | Description
+----------|------------
 `label` | Required. The left text of the badge.
 `message` | Required. The right text of the badge.
 `labelColor` | The left color of the badge.
-`color` | The right color of the badge. For custom colors wrap color string in quotes `"#bf155b"`
+`color` | The right color of the badge. For custom colors wrap color string in quotes `"#bf155b"`. This parameter is ignored if the `valColorRange`, `maxColorRange`, and `minColorRange` are set.
 `isError` | The color will be red and cannot be overridden.
 `namedLogo` | A logo name from [simpleicons.org](http://simpleicons.org/).
 `logoSvg` | An svg-string to be used as logo.
@@ -80,12 +86,21 @@ Gist Parameter | Description
 `logoPosition` | The position of the logo.
 `style` | The style like "flat" or "social".
 `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).
-`valColorRange` | Numerical value used to define the message color.
-`maxColorRange` | Maximum value in the range used to define the message color.
-`minColorRange` | Minimum value in the range used to define the message color.
+
+### Color Range Parameters (optional)
+
+Starting with version 1.3.0 of this action, the color of the right side of the badge can be computed automatically on a green-to-red color-scale.
+For this, the following parameters can be used.
+
+Parameter | Description
+----------|------------
+`valColorRange` | A numerical value used to define the message color. Usually this should be between `maxColorRange` and `minColorRange`.
+`maxColorRange` | If `valColorRange` assumes this value, the badge will be green.
+`minColorRange` | If `valColorRange` assumes this value, the badge will be red.
 `invertColorRange` | If the range should be inverted, causing a smaller value to have green color.
-`colorRangeSaturation` |  Saturation used by the color range feature. Defaults to 100%.
-`colorRangeLightness` |  Lightness used by the color range feature. Defaults to 40%.
+`colorRangeSaturation` |  Saturation used by the color range feature. Defaults to 100.
+`colorRangeLightness` |  Lightness used by the color range feature. Defaults to 40.
+
 
 ### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)
 
@@ -105,7 +120,7 @@ A common usage pattern of this action is to create environment variables in prev
     color: green
 ```
 
-# Contributing to Dynamic Badges Action
+## Contributing to Dynamic Badges Action
 
 Whenever you encounter a :beetle: **bug** or have :tada: **feature request**, 
 report this via [Github issues](https://github.com/schneegans/dynamic-badges-action/issues).
@@ -113,7 +128,7 @@ report this via [Github issues](https://github.com/schneegans/dynamic-badges-act
 We are happy to receive contributions in the form of **pull requests** via Github.
 Feel free to fork the repository, implement your changes and create a merge request to the `master` branch.
 
-## Git Commit Messages
+### Git Commit Messages
 
 Commits should start with a Capital letter and should be written in present tense (e.g. __:tada: Add cool new feature__ instead of __:tada: Added cool new feature__).
 You should also start your commit message with **one** applicable emoji. This does not only look great but also makes you rethink what to add to a commit. Make many but small commits!
@@ -132,7 +147,7 @@ Emoji | Description
 :fire: `:fire:` | When you removed something.
 :truck: `:truck:` | When you moved / renamed something.
 
-## Version Numbers
+### Version Numbers
 
 Version numbers will be assigned according to the [Semantic Versioning](https://semver.org/) scheme.
 This means, given a version number MAJOR.MINOR.PATCH, we will increment the:
