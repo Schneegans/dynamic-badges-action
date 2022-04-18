@@ -14,22 +14,22 @@ try {
   };
 
   // Get all optional attributes and add them to the content object if given.
-  const labelColor   = core.getInput('labelColor');
-  const color        = core.getInput('color');
-  const isError      = core.getInput('isError');
-  const namedLogo    = core.getInput('namedLogo');
-  const logoSvg      = core.getInput('logoSvg');
-  const logoColor    = core.getInput('logoColor');
-  const logoWidth    = core.getInput('logoWidth');
-  const logoPosition = core.getInput('logoPosition');
-  const style        = core.getInput('style');
-  const cacheSeconds = core.getInput('cacheSeconds');
-  const valColorRange = core.getInput('valColorRange');
-  const minColorRange = core.getInput('minColorRange');
-  const maxColorRange = core.getInput('maxColorRange');
-  const invertColorRange = core.getInput('invertColorRange');
+  const labelColor           = core.getInput('labelColor');
+  const color                = core.getInput('color');
+  const isError              = core.getInput('isError');
+  const namedLogo            = core.getInput('namedLogo');
+  const logoSvg              = core.getInput('logoSvg');
+  const logoColor            = core.getInput('logoColor');
+  const logoWidth            = core.getInput('logoWidth');
+  const logoPosition         = core.getInput('logoPosition');
+  const style                = core.getInput('style');
+  const cacheSeconds         = core.getInput('cacheSeconds');
+  const valColorRange        = core.getInput('valColorRange');
+  const minColorRange        = core.getInput('minColorRange');
+  const maxColorRange        = core.getInput('maxColorRange');
+  const invertColorRange     = core.getInput('invertColorRange');
   const colorRangeSaturation = core.getInput('colorRangeSaturation');
-  const colorRangeLightness = core.getInput('colorRangeLightness');
+  const colorRangeLightness  = core.getInput('colorRangeLightness');
 
   if (labelColor != '') {
     content.labelColor = labelColor;
@@ -48,14 +48,14 @@ try {
       hue = Math.floor((max - val) / (max - min) * 120);
     }
     let sat = 100;
-    if(colorRangeSaturation != '') {
+    if (colorRangeSaturation != '') {
       sat = colorRangeSaturation;
-    } 
+    }
     let lig = 40;
-    if(colorRangeLightness != '') {
+    if (colorRangeLightness != '') {
       lig = colorRangeLightness;
     }
-    content.color = "hsl(" + hue + ", " + sat +  "%, " + lig + "%)";
+    content.color = 'hsl(' + hue + ', ' + sat + '%, ' + lig + '%)';
   } else if (color != '') {
     content.color = color;
   }
