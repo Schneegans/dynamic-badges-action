@@ -25,7 +25,7 @@ try {
   if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
     const max = parseFloat(maxColorRange);
     const min = parseFloat(minColorRange);
-    const val = parseFloat(valColorRange);
+    let val = parseFloat(valColorRange);
 
     if (val < min) val = min;
     if (val > max) val = max;
