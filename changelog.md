@@ -1,5 +1,13 @@
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.4.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.4.0)
+
+**Release Date:** 2022-05-15
+
+#### Changes
+
+* Fixed a bug which caused the action to fail if the value for the automatic color range was out of bounds. Thanks to [@LucasWolfgang](https://github.com/LucasWolfgang) for this fix!
+
 ## [Dynamic Badges Action 1.3.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.3.0)
 
 **Release Date:** 2022-04-18
