@@ -39,7 +39,7 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegan
 4. Add something like the following to your workflow:
 ```yml
 - name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.3.0
+  uses: schneegans/dynamic-badges-action@v1.4.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
@@ -114,7 +114,7 @@ For all values in between, the color will be interpolated.
 - name: Get the Numbers
   run: echo "ANSWER=42" >> $GITHUB_ENV
 - name: Create the Badge
-  uses: schneegans/dynamic-badges-action@v1.3.0
+  uses: schneegans/dynamic-badges-action@v1.4.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
