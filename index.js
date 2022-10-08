@@ -17,30 +17,30 @@ try {
         'Authorization': 'token ' + core.getInput('auth'),
       }
     };
-  
+
     return doRequest(updateGistOptions, data)
   }
-  
+
   function doRequest(options, data) {
     return new Promise((resolve, reject) => {
       const req = http.request(options, (res) => {
         res.setEncoding('utf8');
         let responseBody = '';
-  
+
         res.on('data', (chunk) => {
           responseBody += chunk;
         });
-  
+
         res.on('end', () => {
-          const { statusCode, statusMessage } = res;
-          resolve({ statusCode, statusMessage, body: JSON.parse(responseBody) });
+          const {statusCode, statusMessage} = res;
+          resolve({statusCode, statusMessage, body: JSON.parse(responseBody)});
         });
       });
-  
+
       req.on('error', (err) => {
         reject(err);
       });
-  
+
       req.write(data)
       req.end();
     });
@@ -56,8 +56,8 @@ try {
     message: core.getInput('message')
   };
 
-  const updateIfChanged     = core.getInput('updateIfChanged');
-  
+  const updateIfChanged = core.getInput('updateIfChanged');
+
   // Compute the message color based on the given inputs.
   const color                = core.getInput('color');
   const valColorRange        = core.getInput('valColorRange');
@@ -70,7 +70,7 @@ try {
   if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
     const max = parseFloat(maxColorRange);
     const min = parseFloat(minColorRange);
-    let val = parseFloat(valColorRange);
+    let val   = parseFloat(valColorRange);
 
     if (val < min) val = min;
     if (val > max) val = max;
@@ -151,10 +151,9 @@ try {
 
   // For the POST request, the above content is set as file contents for the
   // given filename.
-  const request = JSON.stringify({
-    files: {[filename]: {content: JSON.stringify(content)}}
-  });
-  
+  const request =
+      JSON.stringify({files: {[filename]: {content: JSON.stringify(content)}}});
+
   if (updateIfChanged == 'true') {
     const getGistOptions = {
       host: 'api.github.com',
@@ -166,20 +165,22 @@ try {
         'Authorization': 'token ' + core.getInput('auth'),
       }
     };
-    
+
     doRequest(getGistOptions, JSON.stringify({})).then(oldGist => {
       if (oldGist.statusCode < 200 || oldGist.statusCode >= 400) {
         // print the error, but don't fail the action
         console.log(
-          'Failed to get gist, response status code: ' + oldGist.statusCode +
-          ', status message: ' + oldGist.statusMessage);
-      } 
-      
-      if (oldGist && oldGist.body && oldGist.body.files && oldGist.body.files[filename]) {
+            'Failed to get gist, response status code: ' + oldGist.statusCode +
+            ', status message: ' + oldGist.statusMessage);
+      }
+
+      if (oldGist && oldGist.body && oldGist.body.files &&
+          oldGist.body.files[filename]) {
         const oldContent = oldGist.body.files[filename].content;
 
         if (oldContent === JSON.stringify(content)) {
-          console.log(`Content did not change, not updating gist at ${filename}`);
+          console.log(
+              `Content did not change, not updating gist at ${filename}`);
           shouldUpdate = false;
         }
       }
@@ -194,8 +195,8 @@ try {
         updatingGist(request).then(res => {
           if (res.statusCode < 200 || res.statusCode >= 400) {
             core.setFailed(
-              'Failed to create gist, response status code: ' + res.statusCode +
-              ', status message: ' + res.statusMessage);
+                'Failed to create gist, response status code: ' +
+                res.statusCode + ', status message: ' + res.statusMessage);
           } else {
             console.log('Success!');
           }
@@ -206,8 +207,8 @@ try {
     updatingGist(request).then(res => {
       if (res.statusCode < 200 || res.statusCode >= 400) {
         core.setFailed(
-          'Failed to create gist, response status code: ' + res.statusCode +
-          ', status message: ' + res.statusMessage);
+            'Failed to create gist, response status code: ' + res.statusCode +
+            ', status message: ' + res.statusMessage);
       } else {
         console.log('Success!');
       }
