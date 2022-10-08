@@ -86,6 +86,7 @@ Parameter | Description
 `logoPosition` | The position of the logo.
 `style` | The style like "flat" or "social".
 `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).
+`updateIfChanged` | Default is `false`. If `true` will update the gist only if content changed.
 
 ### Color Range Parameters (optional)
 

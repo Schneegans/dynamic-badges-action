@@ -19,6 +19,10 @@ inputs:
   message:
     description: 'The right text of the badge'
     required: true
+  updateIfChanged:
+    description: 'If true will update the gist only if content changed'
+    default: 'false'
+    required: false
   labelColor:
     description: 'The left color of the badge'
     required: false
