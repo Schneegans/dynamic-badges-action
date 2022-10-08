@@ -10,11 +10,11 @@ jobs:
       - name: Get the Numbers
         run: echo "ANSWER=42" >> $GITHUB_ENV
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@feature/update-only-if-changed
+        uses: schneegans/dynamic-badges-action@master
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
-          filename: answer2.json
+          filename: answer.json
           label: The Answer
           message: is ${{ env.ANSWER }}
           valColorRange: ${{ env.ANSWER }}
