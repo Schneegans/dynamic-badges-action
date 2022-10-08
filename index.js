@@ -3,7 +3,7 @@ const http = require('https');
 
 try {
 
-  function updatingGist(data) {
+  function updateGist(data) {
     // Perform the actual request. The user agent is required as defined in
     // https://developer.github.com/v3/#user-agent-required
     const updateGistOptions = {
@@ -18,12 +18,20 @@ try {
       }
     };
 
-    return doRequest(updateGistOptions, data)
+    doRequest(updateGistOptions, data).then(res => {
+      if (res.statusCode < 200 || res.statusCode >= 400) {
+        core.setFailed(
+            'Failed to create gist, response status code: ' + res.statusCode +
+            ', status message: ' + res.statusMessage);
+      } else {
+        console.log('Success!');
+      }
+    });
   }
 
   function doRequest(options, data) {
     return new Promise((resolve, reject) => {
-      const req = http.request(options, (res) => {
+      const req = http.request(options, res => {
         res.setEncoding('utf8');
         let responseBody = '';
 
@@ -192,28 +200,14 @@ try {
           console.log(`Content didn't exist, creating gist at ${filename}`);
         }
 
-        updatingGist(request).then(res => {
-          if (res.statusCode < 200 || res.statusCode >= 400) {
-            core.setFailed(
-                'Failed to create gist, response status code: ' +
-                res.statusCode + ', status message: ' + res.statusMessage);
-          } else {
-            console.log('Success!');
-          }
-        });
+        updateGist(request);
       }
     });
+
   } else {
-    updatingGist(request).then(res => {
-      if (res.statusCode < 200 || res.statusCode >= 400) {
-        core.setFailed(
-            'Failed to create gist, response status code: ' + res.statusCode +
-            ', status message: ' + res.statusMessage);
-      } else {
-        console.log('Success!');
-      }
-    });
+    updateGist(request);
   }
+
 } catch (error) {
   core.setFailed(error);
 }
