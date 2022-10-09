@@ -2,7 +2,7 @@
 
 ## [Dynamic Badges Action 1.5.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.5.0)
 
-**Release Date:** TBD
+**Release Date:** 2022-10-09
 
 * The gist is now not updated anymore if the content did not change. This prevents many gist revisions without actual changes. You can restore the original behavior by setting the optional `forceUpdate` parameter to `true`. A BIG thanks to [@MishaKav](https://github.com/MishaKav) for this contribution!
 * Example color range badges have been added to the README.
