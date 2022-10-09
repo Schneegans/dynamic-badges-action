@@ -20,5 +20,4 @@ jobs:
           valColorRange: ${{ env.ANSWER }}
           maxColorRange: 100
           minColorRange: 0
-          updateIfChanged: true
 

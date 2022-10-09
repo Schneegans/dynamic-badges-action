@@ -67,6 +67,13 @@ Parameter | Description
 `filename` | The target filename - each gist may contain several files. This should have the `.json` extension.
 
 
+### Optional Input Parameters
+
+Parameter | Description
+----------|------------
+`forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change.
+
+
 ### Shields.io Parameters (optional)
 
 All these parameters are optional.
@@ -86,7 +93,6 @@ Parameter | Description
 `logoPosition` | The position of the logo.
 `style` | The style like "flat" or "social".
 `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).
-`updateIfChanged` | Default is `false`. If `true` will update the gist only if content changed.
 
 ### Color Range Parameters (optional)
 

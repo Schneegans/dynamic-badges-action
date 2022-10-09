@@ -64,8 +64,6 @@ try {
     message: core.getInput('message')
   };
 
-  const updateIfChanged = core.getInput('updateIfChanged');
-
   // Compute the message color based on the given inputs.
   const color                = core.getInput('color');
   const valColorRange        = core.getInput('valColorRange');
@@ -162,7 +160,9 @@ try {
   const request =
       JSON.stringify({files: {[filename]: {content: JSON.stringify(content)}}});
 
-  if (updateIfChanged == 'true') {
+  if (core.getInput('forceUpdate')) {
+    updateGist(request);
+  } else {
     const getGistOptions = {
       host: 'api.github.com',
       path: '/gists/' + core.getInput('gistID'),
@@ -203,9 +203,6 @@ try {
         updateGist(request);
       }
     });
-
-  } else {
-    updateGist(request);
   }
 
 } catch (error) {

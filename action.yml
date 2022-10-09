@@ -19,8 +19,8 @@ inputs:
   message:
     description: 'The right text of the badge'
     required: true
-  updateIfChanged:
-    description: 'If true will update the gist only if content changed'
+  forceUpdate:
+    description: 'If set to true, the gist will be updated even if the content did not change'
     default: 'false'
     required: false
   labelColor:
