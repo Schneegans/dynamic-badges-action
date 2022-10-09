@@ -10,7 +10,7 @@ jobs:
       - name: Get the Numbers
         run: echo "ANSWER=42" >> $GITHUB_ENV
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@master
+        uses: schneegans/dynamic-badges-action@feature/update-only-if-changed
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
