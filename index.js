@@ -153,14 +153,12 @@ try {
     content.cacheSeconds = parseInt(cacheSeconds);
   }
 
-  let shouldUpdate = true;
-
   // For the POST request, the above content is set as file contents for the
   // given filename.
   const request =
       JSON.stringify({files: {[filename]: {content: JSON.stringify(content)}}});
 
-  if (core.getInput('forceUpdate')) {
+  if (core.getBooleanInput('forceUpdate')) {
     updateGist(request);
   } else {
     const getGistOptions = {
@@ -181,6 +179,8 @@ try {
             'Failed to get gist, response status code: ' + oldGist.statusCode +
             ', status message: ' + oldGist.statusMessage);
       }
+
+      let shouldUpdate = true;
 
       if (oldGist && oldGist.body && oldGist.body.files &&
           oldGist.body.files[filename]) {
