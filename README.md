@@ -67,6 +67,13 @@ Parameter | Description
 `filename` | The target filename - each gist may contain several files. This should have the `.json` extension.
 
 
+### Optional Input Parameters
+
+Parameter | Description
+----------|------------
+`forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change.
+
+
 ### Shields.io Parameters (optional)
 
 All these parameters are optional.

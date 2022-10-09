@@ -1,12 +1,72 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+//                    This file is part of the Dynamic Badges Action                    //
+// It may be used under the terms of the MIT license. See the LICENSE file for details. //
+//                         Copyright: (c) 2020 Simon Schneegans                         //
+//////////////////////////////////////////////////////////////////////////////////////////
+
 const core = require('@actions/core');
 const http = require('https');
 
+// Performs an HTTP request and returns a Promise accordingly. See docs of
+// http.request() for the available options.
+function doRequest(options, data) {
+  return new Promise((resolve, reject) => {
+    const req = http.request(options, res => {
+      res.setEncoding('utf8');
+      let responseBody = '';
+
+      res.on('data', (chunk) => {
+        responseBody += chunk;
+      });
+
+      res.on('end', () => {
+        const {statusCode, statusMessage} = res;
+        resolve({statusCode, statusMessage, body: JSON.parse(responseBody)});
+      });
+    });
+
+    req.on('error', (err) => {
+      reject(err);
+    });
+
+    req.write(data)
+    req.end();
+  });
+}
+
+// This uses the method above to update a gist with the given data. The user agent is
+// required as defined in https://developer.github.com/v3/#user-agent-required
+function updateGist(data) {
+  const updateGistOptions = {
+    host: 'api.github.com',
+    path: '/gists/' + core.getInput('gistID'),
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': data.length,
+      'User-Agent': 'Schneegans',
+      'Authorization': 'token ' + core.getInput('auth'),
+    }
+  };
+
+  doRequest(updateGistOptions, data).then(res => {
+    if (res.statusCode < 200 || res.statusCode >= 400) {
+      core.setFailed(
+          'Failed to create gist, response status code: ' + res.statusCode +
+          ', status message: ' + res.statusMessage);
+    } else {
+      console.log('Success!');
+    }
+  });
+}
+
+// We wrap the entire action in a try / catch block so we can set it to "failed" if
+// something goes wrong.
 try {
 
-  // This object will be stringified and uploaded to the gist. The
-  // schemaVersion, label and message attributes are always required. All others
-  // are optional and added to the content object only if they are given to the
-  // action.
+  // This object will be stringified and uploaded to the gist. The schemaVersion, label
+  // and message attributes are always required. All others are optional and added to the
+  // content object only if they are given to the action.
   let content = {
     schemaVersion: 1,
     label: core.getInput('label'),
@@ -25,7 +85,7 @@ try {
   if (minColorRange != '' && maxColorRange != '' && valColorRange != '') {
     const max = parseFloat(maxColorRange);
     const min = parseFloat(minColorRange);
-    let val = parseFloat(valColorRange);
+    let val   = parseFloat(valColorRange);
 
     if (val < min) val = min;
     if (val > max) val = max;
@@ -64,6 +124,7 @@ try {
   const logoPosition = core.getInput('logoPosition');
   const style        = core.getInput('style');
   const cacheSeconds = core.getInput('cacheSeconds');
+  const filename     = core.getInput('filename');
 
   if (labelColor != '') {
     content.labelColor = labelColor;
@@ -103,36 +164,58 @@ try {
 
   // For the POST request, the above content is set as file contents for the
   // given filename.
-  const request = JSON.stringify({
-    files: {[core.getInput('filename')]: {content: JSON.stringify(content)}}
-  });
+  const request =
+      JSON.stringify({files: {[filename]: {content: JSON.stringify(content)}}});
 
-  // Perform the actual request. The user agent is required as defined in
-  // https://developer.github.com/v3/#user-agent-required
-  const req = http.request(
-      {
-        host: 'api.github.com',
-        path: '/gists/' + core.getInput('gistID'),
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': request.length,
-          'User-Agent': 'Schneegans',
-          'Authorization': 'token ' + core.getInput('auth'),
+  // If "forceUpdate" is set to true, we can simply update the gist. If not, we have to
+  // get the gist data and compare it to the new value before.
+  if (core.getBooleanInput('forceUpdate')) {
+    updateGist(request);
+
+  } else {
+
+    // Get the old gist.
+    const getGistOptions = {
+      host: 'api.github.com',
+      path: '/gists/' + core.getInput('gistID'),
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Schneegans',
+        'Authorization': 'token ' + core.getInput('auth'),
+      }
+    };
+
+    doRequest(getGistOptions, JSON.stringify({})).then(oldGist => {
+      if (oldGist.statusCode < 200 || oldGist.statusCode >= 400) {
+        // print the error, but don't fail the action.
+        console.log(
+            'Failed to get gist, response status code: ' + oldGist.statusCode +
+            ', status message: ' + oldGist.statusMessage);
+      }
+
+      let shouldUpdate = true;
+
+      if (oldGist && oldGist.body && oldGist.body.files && oldGist.body.files[filename]) {
+        const oldContent = oldGist.body.files[filename].content;
+
+        if (oldContent === JSON.stringify(content)) {
+          console.log(`Content did not change, not updating gist at ${filename}.`);
+          shouldUpdate = false;
         }
-      },
-      res => {
-        if (res.statusCode < 200 || res.statusCode >= 400) {
-          core.setFailed(
-              'Failed to create gist, response status code: ' + res.statusCode +
-              ', status message: ' + res.statusMessage);
+      }
+
+      if (shouldUpdate) {
+        if (oldGist.body.files[filename]) {
+          console.log(`Content changed, updating gist at ${filename}.`);
         } else {
-          console.log('Success!');
+          console.log(`Content didn't exist, creating gist at ${filename}.`);
         }
-      });
 
-  req.write(request);
-  req.end();
+        updateGist(request);
+      }
+    });
+  }
 
 } catch (error) {
   core.setFailed(error);

@@ -1,5 +1,12 @@
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.5.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.5.0)
+
+**Release Date:** TBD
+
+* The gist is now not updated anymore if the content did not change. This prevents many gist revisions without actual changes. You can restore the original behavior by setting the optional `forceUpdate` parameter to `true`. A BIG thanks to [@MishaKav](https://github.com/MishaKav) for this contribution!
+* All node dependencies have been updated.
+
 ## [Dynamic Badges Action 1.4.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.4.0)
 
 **Release Date:** 2022-05-15
