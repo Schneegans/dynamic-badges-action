@@ -21,3 +21,39 @@ jobs:
           maxColorRange: 100
           minColorRange: 0
 
+  color-range-badges:
+    name: "Create Color Range Badges"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        total:
+          - 0
+          - 10
+          - 20
+          - 30
+          - 40
+          - 50
+          - 60
+          - 70
+          - 80
+          - 90
+          - 100
+    steps:
+      - name: "Stagger"
+        run: |
+          # Gist returns 500 if we try to update many files in the same gist all at once.
+          # Thanks to Ned Batchelder for this idea!
+          # https://nedbatchelder.com/blog/202209/making_a_coverage_badge.html
+          sleep $( expr ${{ matrix.total }} / 10 )
+      - name: "Make badge"
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 2ab8f1d386f13aaebccbd87dac94068d
+          filename: color_badge_${{ matrix.total }}.json
+          label: Coverage
+          message: ${{ matrix.total }}%
+          minColorRange: 50
+          maxColorRange: 90
+          valColorRange: ${{ matrix.total }}
+

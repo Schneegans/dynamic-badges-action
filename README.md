@@ -96,7 +96,20 @@ Parameter | Description
 
 ### Color Range Parameters (optional)
 
-Starting with version 1.3.0 of this action, the color of the right side of the badge can be computed automatically on a green-to-red color-scale.
+Starting with version 1.3.0 of this action, the color of the right side of the badge can be computed automatically on a green-to-red color-scale. For example, these badges have been colored with `minColorRange: 50` and `maxColorRange: 90`:
+
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_0.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_10.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_20.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_30.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_40.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_50.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)<br>
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_60.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_70.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_80.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_90.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/color_badge_100.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
+
 For this, the following parameters can be used.
 
 Parameter | Description
@@ -109,7 +122,7 @@ Parameter | Description
 `colorRangeLightness` |  Lightness used by the color range feature. Defaults to 40.
 
 
-### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)
+### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
 
 A common usage pattern of this action is to create environment variables in previous steps of a job and later use them as message in your badge.
 How this can be done, is shown in the following example.
