@@ -1,5 +1,14 @@
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.6.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.6.0)
+
+**Release Date:** 2022-10-13
+
+#### Changes
+
+* The action now runs on Node 16 instead of the deprecated Node 12.
+
+
 ## [Dynamic Badges Action 1.5.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.5.0)
 
 **Release Date:** 2022-10-09
