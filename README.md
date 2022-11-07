@@ -35,7 +35,7 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegan
 
 1. Head over to [gist.github.com](https://gist.github.com/) and create a new gist. You can name the file `test.json`, but this can be changed later as well. You will need the ID of the gist (this is the long alphanumerical part of its URL) later.
 2. Navigate to [github.com/settings/tokens](https://github.com/settings/tokens) and create a new token with the *gist* scope.
-3. Go to the *Secrets* page of the settings of your repository and add this token as a new secret. You can give it any name, for example `GIST_SECRET`.
+3. Go to the *Secrets* page of the settings of your repository (Settings > Secrets > Actions) and add this token as a new secret. You can give it any name, for example `GIST_SECRET`. **If you use Dependabot to automatically update dependencies of your repository, you also have to add this secret to Dependabot's secrets (Settings > Secrets > Dependabot).**
 4. Add something like the following to your workflow:
 ```yml
 - name: Create Awesome Badge
