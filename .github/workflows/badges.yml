@@ -21,6 +21,19 @@ jobs:
           maxColorRange: 100
           minColorRange: 0
 
+   svg-badge:
+    name: Create SVG Badge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create the Badge
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 2ab8f1d386f13aaebccbd87dac94068d
+          filename: badge.svg
+          label: This is
+          message: an SVG badge
+
   color-range-badges:
     name: "Create Color Range Badges"
     runs-on: ubuntu-latest
