@@ -21,7 +21,7 @@ jobs:
           maxColorRange: 100
           minColorRange: 0
 
-   svg-badge:
+  svg-badge:
     name: Create SVG Badge
     runs-on: ubuntu-latest
     steps:
@@ -69,4 +69,3 @@ jobs:
           minColorRange: 50
           maxColorRange: 90
           valColorRange: ${{ matrix.total }}
-
