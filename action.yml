@@ -11,7 +11,7 @@ inputs:
     description: 'The ID of the gist to use'
     required: true
   filename:
-    description: 'The *.json filename of the badge data'
+    description: 'The *.json or *.svg filename of the badge data'
     required: true
   label:
     description: 'The left text of the badge'
@@ -72,5 +72,5 @@ inputs:
     description: 'Lightness used by the color range feature. Defaults to 40.'
     required: false
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
