@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@master
+        uses: schneegans/dynamic-badges-action@feature/save-svg
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
