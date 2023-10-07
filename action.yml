@@ -19,6 +19,10 @@ inputs:
   message:
     description: 'The right text of the badge'
     required: true
+  host:
+    description: 'The base URL of the gist API'
+    default: 'https://api.github.com/gists/'
+    required: false
   forceUpdate:
     description: 'If set to true, the gist will be updated even if the content did not change'
     default: 'false'

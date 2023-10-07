@@ -7,10 +7,7 @@
 import core from '@actions/core';
 import { makeBadge } from 'badge-maker';
 
-const gistUrl = new URL(
-  core.getInput('gistID'),
-  'https://api.github.com/gists/'
-);
+const gistUrl = new URL(core.getInput('gistID'), core.getInput('host'));
 
 // This uses the method above to update a gist with the given data. The user agent is
 // required as defined in https://developer.github.com/v3/#user-agent-required
