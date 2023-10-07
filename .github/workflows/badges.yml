@@ -30,7 +30,7 @@ jobs:
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
-          filename: badge2.svg
+          filename: badge.svg
           label: This is
           message: an SVG badge
           color: red
