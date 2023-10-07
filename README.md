@@ -89,6 +89,7 @@ Embed the badge with:
 
 | Parameter     | Description                                                                                        | Supported in SVG Mode |
 | ------------- | -------------------------------------------------------------------------------------------------- | --------------------- |
+| `host`        | Default is `https://api.github.com/gists/`. You can change this if you're using GitHub enterprise. | ✅                    |
 | `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change. | ✅                    |
 
 ### Shields.io Parameters (optional)
