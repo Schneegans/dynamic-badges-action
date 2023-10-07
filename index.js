@@ -169,13 +169,9 @@ try {
     })
       .then((response) => {
         if (!response.ok) {
-          // print the error, but don't fail the action.
-          console.log(
+          return Promise.reject(
             `Failed to get gist: ${response.status} ${response.statusText}`
           );
-          response.text().then((text) => console.log(text));
-
-          return {};
         }
 
         return response.json();
