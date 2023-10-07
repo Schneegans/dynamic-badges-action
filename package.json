@@ -2,6 +2,7 @@
   "name": "dynamic-badges-action",
   "version": "1.5.0",
   "description": "A GitHub Action which uses shields.io to create custom badges and uploads the to a gist.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/Schneegans/dynamic-badges-action#readme",
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.0",
+    "badge-maker": "^3.3.1"
   }
 }
