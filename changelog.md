@@ -8,6 +8,7 @@
 
 - **SVG Mode:** If your gist filename ends with `.svg` instead of `.json`, the action will now generate an SVG badge instead of a JSON file. This is useful if you cannot use shields.io for some reason. However, this SVG mode does not support all features of shields.io. Thanks to [@runarberg](https://github.com/runarberg) for this contribution!
 - **New `host` Parameter:** You can now specify the host for the gist API. This is useful if you want to use the action on a GitHub enterprise instance. Thanks to [@LucBerge](https://github.com/LucBerge) for this idea!
+- The code has received some major refactoring. If you encounter any problems, please open an issue!
 - The action now runs on Node 20 instead of Node 16.
 
 ## [Dynamic Badges Action 1.6.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.6.0)
