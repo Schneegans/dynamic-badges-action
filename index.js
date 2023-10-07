@@ -199,6 +199,9 @@ try {
 
           updateGist(body);
         }
+      })
+      .catch((error) => {
+        core.setFailed(error);
       });
   }
 } catch (error) {
