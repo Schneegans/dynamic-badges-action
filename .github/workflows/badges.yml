@@ -29,7 +29,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@fix/content-check
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 2ab8f1d386f13aaebccbd87dac94068d
+          gistID: 2ab8f1d386f13aaebccbd87dac94068
           filename: badge.svg
           label: This is
           message: an SVG badge
