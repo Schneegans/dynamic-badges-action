@@ -10,7 +10,7 @@ jobs:
       - name: Get the Numbers
         run: echo "ANSWER=42" >> $GITHUB_ENV
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@fix/content-check
+        uses: schneegans/dynamic-badges-action@master
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@fix/content-check
+        uses: schneegans/dynamic-badges-action@master
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
@@ -61,7 +61,7 @@ jobs:
           # https://nedbatchelder.com/blog/202209/making_a_coverage_badge.html
           sleep $( expr ${{ matrix.total }} / 10 )
       - name: "Make badge"
-        uses: schneegans/dynamic-badges-action@fix/content-check
+        uses: schneegans/dynamic-badges-action@master
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 2ab8f1d386f13aaebccbd87dac94068d
