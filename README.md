@@ -1,4 +1,4 @@
-# Dynamic Badges Action
+# 🏷️ Dynamic Badges Action
 
 [![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Build%20Badges/badge.svg)](https://github.com/Schneegans/dynamic-badges-action/actions)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
@@ -26,13 +26,15 @@ This JSON object may look like this:
 }
 ```
 
-This JSON object is then uploaded as a file to a _gist_ ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and can be transformed to a badge like [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of this example badge:
+This JSON object is then uploaded as a file to a _gist_ ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and automatically transformed to [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of this badge:
 
 ```
 https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
 ```
 
-## Configuration
+ℹ️ **SVG Mode: The action also supports an _SVG mode_ in which the badge is created directly by the action and uploaded as image to the gist. This mode does not support all features of shields.io but is useful if you cannot use shields.io for some reason.**
+
+## 🛠️ Configuration
 
 1. Head over to [gist.github.com](https://gist.github.com/) and create a new gist. You can name the file `test.json`, but this can be changed later as well. You will need the ID of the gist (this is the long alphanumerical part of its URL) later.
 2. Navigate to [github.com/settings/tokens](https://github.com/settings/tokens) and create a new token with the _gist_ scope.
@@ -45,15 +47,14 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegan
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
-    filename: test.json
+    filename: test.json # Use test.svg if you want to use the SVG mode.
     label: Hello
     message: World
     color: orange
 ```
 
 Once the action is executed, go to your gist.
-There should be a new file called `test.json`.
-You can view the raw content of this file at `https://gist.githubusercontent.com/<user>/<gist-ID>/raw/test.json`.
+There should be a new file called `test.json` (or `test.svg` if you used SVG mode).
 Embed the badge with:
 
 ```markdown
@@ -62,17 +63,17 @@ Embed the badge with:
 
 ### Required Input Parameters
 
-| Parameter  | Description                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------- |
-| `auth`     | A secret token with the _gist_ scope.                                                              |
-| `gistID`   | The ID of the target gist. Something like `8f6459c2417de7534f64d98360dde866`.                      |
-| `filename` | The target filename - each gist may contain several files. This should have the `.json` extension. |
+| Parameter  | Description                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `auth`     | A secret token with the _gist_ scope.                                                                                                                                                                                  |
+| `gistID`   | The ID of the target gist. Something like `8f6459c2417de7534f64d98360dde866`.                                                                                                                                          |
+| `filename` | The target filename - each gist may contain several files. This should have a `.json` extension if you want to use **shields.io/endpoint** or an `.svg` extension if you want to use the **SVG mode** described above. |
 
 ### Optional Input Parameters
 
-| Parameter     | Description                                                                                        |
-| ------------- | -------------------------------------------------------------------------------------------------- |
-| `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change. |
+| Parameter     | Description                                                                                        | Supported in SVG Mode |
+| ------------- | -------------------------------------------------------------------------------------------------- | --------------------- |
+| `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change. | ✅                    |
 
 ### Shields.io Parameters (optional)
 
@@ -81,18 +82,18 @@ They are directly passed to [shields.io](https://shields.io). See the [official 
 
 | Parameter      | Description                                                                                                                                                                              | Supported in SVG Mode |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `label`        | Required. The left text of the badge.                                                                                                                                                    |
-| `message`      | Required. The right text of the badge.                                                                                                                                                   |
-| `labelColor`   | The left color of the badge.                                                                                                                                                             |
-| `color`        | The right color of the badge. For custom colors wrap color string in quotes `"#bf155b"`. This parameter is ignored if the `valColorRange`, `maxColorRange`, and `minColorRange` are set. |
-| `isError`      | The color will be red and cannot be overridden.                                                                                                                                          |
-| `namedLogo`    | A logo name from [simpleicons.org](http://simpleicons.org/).                                                                                                                             |
-| `logoSvg`      | An svg-string to be used as logo.                                                                                                                                                        |
-| `logoColor`    | The color for the logo.                                                                                                                                                                  |
-| `logoWidth`    | The space allocated for the logo.                                                                                                                                                        |
-| `logoPosition` | The position of the logo.                                                                                                                                                                |
-| `style`        | The style like "flat" or "social".                                                                                                                                                       |
-| `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).                                                                                                                                |
+| `label`        | Required. The left text of the badge.                                                                                                                                                    | ✅                    |
+| `message`      | Required. The right text of the badge.                                                                                                                                                   | ✅                    |
+| `labelColor`   | The left color of the badge.                                                                                                                                                             | ✅                    |
+| `color`        | The right color of the badge. For custom colors wrap color string in quotes `"#bf155b"`. This parameter is ignored if the `valColorRange`, `maxColorRange`, and `minColorRange` are set. | ✅                    |
+| `isError`      | The color will be red and cannot be overridden.                                                                                                                                          |                       |
+| `namedLogo`    | A logo name from [simpleicons.org](http://simpleicons.org/).                                                                                                                             |                       |
+| `logoSvg`      | An svg-string to be used as logo.                                                                                                                                                        |                       |
+| `logoColor`    | The color for the logo.                                                                                                                                                                  |                       |
+| `logoWidth`    | The space allocated for the logo.                                                                                                                                                        |                       |
+| `logoPosition` | The position of the logo.                                                                                                                                                                |                       |
+| `style`        | The style like "flat" or "social".                                                                                                                                                       | ✅                    |
+| `cacheSeconds` | The cache lifetime in seconds (must be greater than 300).                                                                                                                                |                       |
 
 ### Color Range Parameters (optional)
 
@@ -112,14 +113,14 @@ Starting with version 1.3.0 of this action, the color of the right side of the b
 
 For this, the following parameters can be used.
 
-| Parameter              | Description                                                                                                                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `valColorRange`        | A numerical value used to define the message color. Usually this should be between `maxColorRange` and `minColorRange`. This is required if you want to use the color range feature. |
-| `maxColorRange`        | If `valColorRange` assumes this value, the badge will be green. This is required if you want to use the color range feature.                                                         |
-| `minColorRange`        | If `valColorRange` assumes this value, the badge will be red. This is required if you want to use the color range feature.                                                           |
-| `invertColorRange`     | If the range should be inverted, causing a smaller value to have green color. Defaults to `false`.                                                                                   |
-| `colorRangeSaturation` | Saturation used by the color range feature. Defaults to 100.                                                                                                                         |
-| `colorRangeLightness`  | Lightness used by the color range feature. Defaults to 40.                                                                                                                           |
+| Parameter              | Description                                                                                                                                                                          | Supported in SVG Mode |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
+| `valColorRange`        | A numerical value used to define the message color. Usually this should be between `maxColorRange` and `minColorRange`. This is required if you want to use the color range feature. | ✅                    |
+| `maxColorRange`        | If `valColorRange` assumes this value, the badge will be green. This is required if you want to use the color range feature.                                                         | ✅                    |
+| `minColorRange`        | If `valColorRange` assumes this value, the badge will be red. This is required if you want to use the color range feature.                                                           | ✅                    |
+| `invertColorRange`     | If the range should be inverted, causing a smaller value to have green color. Defaults to `false`.                                                                                   | ✅                    |
+| `colorRangeSaturation` | Saturation used by the color range feature. Defaults to 100.                                                                                                                         | ✅                    |
+| `colorRangeLightness`  | Lightness used by the color range feature. Defaults to 40.                                                                                                                           | ✅                    |
 
 ### Using Environment Variables as Parameters [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/answer.json)](https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d)
 
