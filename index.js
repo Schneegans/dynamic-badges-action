@@ -151,7 +151,7 @@ try {
 
   // For the POST request, the above content is set as file contents for the
   // given filename.
-  const body = JSON.stringify({ files: { [filename]: { content } } });
+  const body = JSON.stringify({ files: { filename: { content } } });
 
   // If "forceUpdate" is set to true, we can simply update the gist. If not, we have to
   // get the gist data and compare it to the new value before.
@@ -183,14 +183,8 @@ try {
       .then((oldGist) => {
         let shouldUpdate = true;
 
-        console.log("Old gist:");
-        console.log(oldGist);
-
         if (oldGist?.files?.[filename]) {
           const oldContent = oldGist.files[filename].content;
-
-          console.log(`Old content: ${oldContent}`);
-          console.log(`New content: ${content}`);
 
           if (oldContent === content) {
             console.log(
