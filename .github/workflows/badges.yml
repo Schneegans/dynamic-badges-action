@@ -35,7 +35,6 @@ jobs:
           message: an SVG badge
           color: red
           labelColor: blue
-          style: flat-square
 
   color-range-badges:
     name: "Create Color Range Badges"
