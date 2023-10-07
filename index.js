@@ -26,7 +26,6 @@ async function updateGist(body) {
   });
 
   if (!response.ok) {
-    console.log(await response.text());
     core.setFailed(
       `Failed to create gist, response status code: ${response.status} ${response.statusText}`
     );
@@ -169,13 +168,9 @@ try {
     })
       .then((response) => {
         if (!response.ok) {
-          // print the error, but don't fail the action.
-          console.log(
+          return Promise.reject(
             `Failed to get gist: ${response.status} ${response.statusText}`
           );
-          response.text().then((text) => console.log(text));
-
-          return {};
         }
 
         return response.json();
@@ -183,8 +178,8 @@ try {
       .then((oldGist) => {
         let shouldUpdate = true;
 
-        if (oldGist?.body?.files?.[filename]) {
-          const oldContent = oldGist.body.files[filename].content;
+        if (oldGist?.files?.[filename]) {
+          const oldContent = oldGist.files[filename].content;
 
           if (oldContent === content) {
             console.log(
@@ -195,7 +190,7 @@ try {
         }
 
         if (shouldUpdate) {
-          if (oldGist?.body?.files?.[filename]) {
+          if (oldGist?.files?.[filename]) {
             console.log(`Content changed, updating gist at ${filename}.`);
           } else {
             console.log(`Content didn't exist, creating gist at ${filename}.`);
@@ -203,6 +198,9 @@ try {
 
           updateGist(body);
         }
+      })
+      .catch((error) => {
+        core.setFailed(error);
       });
   }
 } catch (error) {
