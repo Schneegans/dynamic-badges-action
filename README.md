@@ -26,13 +26,29 @@ This JSON object may look like this:
 }
 ```
 
-This JSON object is then uploaded as a file to a _gist_ ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and automatically transformed to [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**. Here is the URL of this badge:
+This JSON object is then uploaded to a _gist_ ([click here for an example](https://gist.github.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d)) and automatically transformed to [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json) with the **shields.io/endpoint**.
 
-```
-https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
+<details><summary>Show Markdown of this Badge!</summary>
+
+```md
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json)
 ```
 
-ℹ️ **SVG Mode: The action also supports an _SVG mode_ in which the badge is created directly by the action and uploaded as image to the gist. This mode does not support all features of shields.io but is useful if you cannot use shields.io for some reason.**
+</details>
+
+### SVG Mode
+
+The action also supports an _SVG mode_ in which the badge is created directly by the action and uploaded as image to the gist.
+This mode does not support all features of shields.io but is useful if you cannot use shields.io for some reason.
+[![badge](https://gist.githubusercontent.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/badge.svg)](https://gist.githubusercontent.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/badge.svg) which is directly stored in a gist.
+
+<details><summary>Show Markdown of this Badge!</summary>
+
+```md
+![badge](https://gist.githubusercontent.com/Schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/badge.svg)
+```
+
+</details>
 
 ## 🛠️ Configuration
 
