@@ -166,9 +166,9 @@ For all values in between, the color will be interpolated.
 ## Contributing to Dynamic Badges Action
 
 Whenever you encounter a :beetle: **bug** or have :tada: **feature request**,
-report this via [Github issues](https://github.com/schneegans/dynamic-badges-action/issues).
+report this via [GitHub issues](https://github.com/schneegans/dynamic-badges-action/issues).
 
-We are happy to receive contributions in the form of **pull requests** via Github.
+We are happy to receive contributions in the form of **pull requests** via GitHub.
 Feel free to fork the repository, implement your changes and create a merge request to the `master` branch.
 
 ### Git Commit Messages
