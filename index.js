@@ -149,7 +149,7 @@ try {
   if (isSvgFile) {
     content = makeBadge(data);
   } else {
-    content = JSON.stringify({ content: data });
+    content = JSON.stringify(data);
   }
 
   // For the POST request, the above content is set as file contents for the
