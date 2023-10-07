@@ -186,8 +186,8 @@ try {
         console.log("Old gist:");
         console.log(oldGist);
 
-        if (oldGist?.body?.files?.[filename]) {
-          const oldContent = oldGist.body.files[filename].content;
+        if (oldGist?.files?.[filename]) {
+          const oldContent = oldGist.files[filename].content;
 
           console.log(`Old content: ${oldContent}`);
           console.log(`New content: ${content}`);
@@ -201,7 +201,7 @@ try {
         }
 
         if (shouldUpdate) {
-          if (oldGist?.body?.files?.[filename]) {
+          if (oldGist?.files?.[filename]) {
             console.log(`Content changed, updating gist at ${filename}.`);
           } else {
             console.log(`Content didn't exist, creating gist at ${filename}.`);
