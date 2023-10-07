@@ -183,8 +183,14 @@ try {
       .then((oldGist) => {
         let shouldUpdate = true;
 
+        console.log("Old gist:");
+        console.log(oldGist);
+
         if (oldGist?.body?.files?.[filename]) {
           const oldContent = oldGist.body.files[filename].content;
+
+          console.log(`Old content: ${oldContent}`);
+          console.log(`New content: ${content}`);
 
           if (oldContent === content) {
             console.log(
