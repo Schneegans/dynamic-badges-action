@@ -12,6 +12,10 @@ const gistUrl = new URL(core.getInput("gistID"), core.getInput("host"));
 // This uses the method above to update a gist with the given data. The user agent is
 // required as defined in https://developer.github.com/v3/#user-agent-required
 async function updateGist(body) {
+  console.log("Updating gist...");
+  console.log(body);
+  console.log(body.length);
+
   const headers = new Headers([
     ["Content-Type", "application/json"],
     ["Content-Length", body.length.toStrinq()],
