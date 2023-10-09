@@ -8,6 +8,7 @@
 
 - **SVG Mode:** If your gist filename ends with `.svg` instead of `.json`, the action will now generate an SVG badge instead of a JSON file. This is useful if you cannot use shields.io for some reason. However, this SVG mode does not support all features of shields.io. Thanks to [@runarberg](https://github.com/runarberg) for this contribution!
 - **New `host` Parameter:** You can now specify the host for the gist API. This is useful if you want to use the action on a GitHub enterprise instance. Thanks to [@LucBerge](https://github.com/LucBerge) for this idea!
+- Fixed a bug which caused the gist not to be updated if the label or message of the badge contained characters which have a different encoding length in UTF8 and UTF16,
 - The code has received some major refactoring. If you encounter any problems, please open an issue!
 - The action now runs on Node 20 instead of Node 16.
 
