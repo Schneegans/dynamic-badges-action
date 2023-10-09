@@ -18,7 +18,7 @@ async function updateGist(body) {
 
   const headers = new Headers([
     ["Content-Type", "application/json"],
-    ["Content-Length", body.length.toStrinq()],
+    ["Content-Length", body.length.toString()],
     ["User-Agent", "Schneegans"],
     ["Authorization", `token ${core.getInput("auth")}`],
   ]);
