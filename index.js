@@ -16,9 +16,12 @@ async function updateGist(body) {
   console.log(body);
   console.log(body.length);
 
+  const length = new TextEncoder().encode("foo").length;
+  console.log(length);
+
   const headers = new Headers([
     ["Content-Type", "application/json"],
-    ["Content-Length", body.length.toString()],
+    ["Content-Length", length],
     ["User-Agent", "Schneegans"],
     ["Authorization", `token ${core.getInput("auth")}`],
   ]);
