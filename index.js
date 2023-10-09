@@ -16,7 +16,7 @@ async function updateGist(body) {
   console.log(body);
   console.log(body.length);
 
-  const length = new TextEncoder().encode("foo").length;
+  const length = new TextEncoder().encode(body).length;
   console.log(length);
 
   const headers = new Headers([
