@@ -14,7 +14,7 @@ const gistUrl = new URL(core.getInput("gistID"), core.getInput("host"));
 async function updateGist(body) {
   const headers = new Headers([
     ["Content-Type", "application/json"],
-    ["Content-Length", body.length],
+    ["Content-Length", new TextEncoder().encode(body).length],
     ["User-Agent", "Schneegans"],
     ["Authorization", `token ${core.getInput("auth")}`],
   ]);
