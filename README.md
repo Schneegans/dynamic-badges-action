@@ -3,6 +3,7 @@
 [![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Build%20Badges/badge.svg)](https://github.com/Schneegans/dynamic-badges-action/actions)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![market](https://img.shields.io/badge/Get_it-on_the_Marketplace-informational.svg)](https://github.com/marketplace/actions/dynamic-badges)
+[![donations](https://gist.githubusercontent.com/Schneegans/2d06edf0937c480951feb86b9e719304/raw/weekly.svg)](https://schneegans.github.io/sponsors/)
 
 This action allows you to create badges for your README.md with [shields.io](https://shields.io) which may change with every commit. To do this, this action does not need to push anything to your repository!
 
@@ -49,6 +50,11 @@ This mode does not support all features of shields.io but is useful if you canno
 ```
 
 </details>
+
+### Use Emoji!
+
+Both, JSON and SVG mode support emoji in the label and message.
+However, this is especially great in SVG mode which does not support icons. Here's an SVG emoji badge which does not use shields.io at all: ![badge](https://gist.githubusercontent.com/Schneegans/2d06edf0937c480951feb86b9e719304/raw/weekly.svg).
 
 ## 🛠️ Configuration
 
