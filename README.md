@@ -7,6 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 [![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Build%20Badges/badge.svg)](https://github.com/Schneegans/dynamic-badges-action/actions)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+[![reuse](https://api.reuse.software/badge/github.com/schneegans/dynamic-badges-action)](https://api.reuse.software/info/github.com/schneegans/dynamic-badges-action)
 [![market](https://img.shields.io/badge/Get_it-on_the_Marketplace-informational.svg)](https://github.com/marketplace/actions/dynamic-badges)
 [![donations](https://gist.githubusercontent.com/Schneegans/2d06edf0937c480951feb86b9e719304/raw/weekly.svg)](https://schneegans.github.io/sponsors/)
 
