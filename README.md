@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: Simon Schneegans <code@simonschneegans.de>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # 🏷️ Dynamic Badges Action
 
 [![badges](https://github.com/Schneegans/dynamic-badges-action/workflows/Build%20Badges/badge.svg)](https://github.com/Schneegans/dynamic-badges-action/actions)

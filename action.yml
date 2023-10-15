@@ -1,80 +1,83 @@
-name: 'Dynamic Badges'
-description: 'Create badges via shields.io/endpoint for your README.md which may change with every commit.'
+# SPDX-FileCopyrightText: Simon Schneegans <code@simonschneegans.de>
+# SPDX-License-Identifier: MIT
+
+name: "Dynamic Badges"
+description: "Create badges via shields.io/endpoint for your README.md which may change with every commit."
 branding:
-  icon: 'tag'
-  color: 'green'
+  icon: "tag"
+  color: "green"
 inputs:
   auth:
-    description: 'Your secret with the gist scope'
+    description: "Your secret with the gist scope"
     required: true
   gistID:
-    description: 'The ID of the gist to use'
+    description: "The ID of the gist to use"
     required: true
   filename:
-    description: 'The *.json or *.svg filename of the badge data'
+    description: "The *.json or *.svg filename of the badge data"
     required: true
   label:
-    description: 'The left text of the badge'
+    description: "The left text of the badge"
     required: true
   message:
-    description: 'The right text of the badge'
+    description: "The right text of the badge"
     required: true
   host:
-    description: 'The base URL of the gist API'
-    default: 'https://api.github.com/gists/'
+    description: "The base URL of the gist API"
+    default: "https://api.github.com/gists/"
     required: false
   forceUpdate:
-    description: 'If set to true, the gist will be updated even if the content did not change'
-    default: 'false'
+    description: "If set to true, the gist will be updated even if the content did not change"
+    default: "false"
     required: false
   labelColor:
-    description: 'The left color of the badge'
+    description: "The left color of the badge"
     required: false
   color:
-    description: 'The right color of the badge'
+    description: "The right color of the badge"
     required: false
   isError:
-    description: 'The color will be red and cannot be overridden'
+    description: "The color will be red and cannot be overridden"
     required: false
   namedLogo:
-    description: 'A logo name from simpleicons.org'
+    description: "A logo name from simpleicons.org"
     required: false
   logoSvg:
-    description: 'An svg-string to be used as logo'
+    description: "An svg-string to be used as logo"
     required: false
   logoColor:
-    description: 'The color for the logo'
+    description: "The color for the logo"
     required: false
   logoWidth:
-    description: 'The space allocated for the logo'
+    description: "The space allocated for the logo"
     required: false
   logoPosition:
-    description: 'The position of the logo'
+    description: "The position of the logo"
     required: false
   style:
     description: 'The style like "flat" or "social"'
     required: false
   cacheSeconds:
-    description: 'The cache lifetime in seconds (must be greater than 300)'
+    description: "The cache lifetime in seconds (must be greater than 300)"
     required: false
   valColorRange:
-    description: 'A numerical value used to define the message color. Usually this should be between maxColorRange and minColorRange. This is required if you want to use the color range feature.'
+    description: "A numerical value used to define the message color. Usually this should be between maxColorRange and minColorRange. This is required if you want to use the color range feature."
     required: false
   maxColorRange:
-    description: 'If valColorRange assumes this value, the badge will be green. This is required if you want to use the color range feature.'
+    description: "If valColorRange assumes this value, the badge will be green. This is required if you want to use the color range feature."
     required: false
   minColorRange:
-    description: 'If valColorRange assumes this value, the badge will be red. This is required if you want to use the color range feature.'
+    description: "If valColorRange assumes this value, the badge will be red. This is required if you want to use the color range feature."
     required: false
   invertColorRange:
-    description: 'If the range should be inverted, causing a smaller value to have green color. Defaults to false.'
+    description: "If the range should be inverted, causing a smaller value to have green color. Defaults to false."
     required: false
   colorRangeSaturation:
-    description: 'Saturation used by the color range feature. Defaults to 100.'
+    description: "Saturation used by the color range feature. Defaults to 100."
     required: false
   colorRangeLightness:
-    description: 'Lightness used by the color range feature. Defaults to 40.'
+    description: "Lightness used by the color range feature. Defaults to 40."
     required: false
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "node20"
+  main: "index.js"

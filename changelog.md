@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: Simon Schneegans <code@simonschneegans.de>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Changelog of the Dynamic Badges Action
 
 ## [Dynamic Badges Action 1.7.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.7.0)
@@ -11,6 +16,7 @@
 - Fixed a bug which caused the gist not to be updated if the label or message of the badge contained characters which have a different encoding length in UTF8 and UTF16,
 - The code has received some major refactoring. If you encounter any problems, please open an issue!
 - The action now runs on Node 20 instead of Node 16.
+- The repository is now compliant with the [REUSE Specification](https://reuse.software/) of the Free Software Foundation Europe.
 
 ## [Dynamic Badges Action 1.6.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.6.0)
 

@@ -1,0 +1,41 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: package.json package-lock.json node_modules/.package-lock.json
+Copyright: Simon Schneegans <code@simonschneegans.de>
+License: CC0-1.0
+
+Files: node_modules/@actions/*
+Copyright: GitHub
+License: MIT
+
+Files: node_modules/anafanafo/* node_modules/char-width-table-consumer/*
+Copyright: Metabolize LLC
+License: MIT
+
+Files: node_modules/badge-maker/*
+Copyright: Thaddée Tyl <thaddee.tyl@gmail.com>
+License: CC0-1.0
+
+Files: node_modules/binary-search/*
+Copyright: The Dark Sky Company, LLC
+License: CC0-1.0
+
+Files: node_modules/color-convert/*
+Copyright: Heather Arthur <fayearthur@gmail.com>
+License: MIT
+
+Files: node_modules/color-name/*
+Copyright: DY <dfcreative@gmail.com>
+License: MIT
+
+Files: node_modules/css-color-converter/* node_modules/css-unit-converter/*
+Copyright: Andy Jansson
+License: MIT
+
+Files: node_modules/tunnel/*
+Copyright: Koichi Kobayashi
+License: MIT
+
+Files: node_modules/uuid/*
+Copyright: Robert Kieffer and other contributors
+License: MIT

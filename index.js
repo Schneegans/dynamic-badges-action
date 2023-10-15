@@ -1,8 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //                    This file is part of the Dynamic Badges Action                    //
 // It may be used under the terms of the MIT license. See the LICENSE file for details. //
-//                         Copyright: (c) 2020 Simon Schneegans                         //
 //////////////////////////////////////////////////////////////////////////////////////////
+
+// SPDX-FileCopyrightText: Simon Schneegans <code@simonschneegans.de>
+// SPDX-License-Identifier: MIT
 
 import core from "@actions/core";
 import { makeBadge } from "badge-maker";
