@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## [Dynamic Badges Action 1.7.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.7.0)
 
-**Release Date:** TBD
+**Release Date:** 2023-10-19
 
 #### Changes
 
