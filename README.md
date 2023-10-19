@@ -71,7 +71,7 @@ However, this is especially great in SVG mode which does not support icons. Here
 
 ```yml
 - name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.6.0
+  uses: schneegans/dynamic-badges-action@v1.7.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
@@ -163,7 +163,7 @@ For all values in between, the color will be interpolated.
 - name: Get the Numbers
   run: echo "ANSWER=42" >> $GITHUB_ENV
 - name: Create the Badge
-  uses: schneegans/dynamic-badges-action@v1.6.0
+  uses: schneegans/dynamic-badges-action@v1.7.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
