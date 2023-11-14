@@ -101,7 +101,7 @@ Embed the badge with:
 
 | Parameter     | Description                                                                                                                                                                  | Supported in SVG Mode |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `host`        | Default is `https://api.github.com/gists/`. You can change this if you're using GitHub enterprise. The URL will be something like `github-enterprise-hostname/api/v3/gists`. | ✅                    |
+| `host`        | Default is `https://api.github.com/gists/`. You can change this if you're using GitHub enterprise. The URL will be something like `https://github-enterprise-hostname/api/v3/gists/`. | ✅                    |
 | `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change.                                                                           | ✅                    |
 
 ### Shields.io Parameters (optional)
@@ -174,6 +174,10 @@ For all values in between, the color will be interpolated.
     maxColorRange: 100
     minColorRange: 0
 ```
+
+### Self-hosted runner compatibility
+
+The current action is compatible with `node20` only. In order to use it with a self-hosted runner, you must use runner with `node20` installed. Your runner version must be equal or higher than [v2.308.0](https://github.com/actions/runner/releases/tag/v2.308.0).
 
 ## Contributing to Dynamic Badges Action
 
