@@ -177,7 +177,7 @@ For all values in between, the color will be interpolated.
 
 ### Self-hosted runner compatibility
 
-The current action is compatible with `node20` only. In order to use it with a self-hosted runner, you must use runner with `node20` installed. Your runner version must be equal or higher than [v2.308.0](https://github.com/actions/runner/releases/tag/v2.308.0).
+The current action is compatible with `node24` only. In order to use it with a self-hosted runner, you must use runner with `node24` installed. Your runner version must be equal or higher than [v2.327.1](https://github.com/actions/runner/releases/tag/v2.327.1).
 
 ## Contributing to Dynamic Badges Action
 
