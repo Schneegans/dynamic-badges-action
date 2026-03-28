@@ -5,6 +5,14 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.8.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.8.0)
+
+**Release Date:** 2025-03-28
+
+#### Changes
+
+- The action now runs on Node 24 instead of Node 20.
+
 ## [Dynamic Badges Action 1.7.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.7.0)
 
 **Release Date:** 2023-10-19
