@@ -13,6 +13,6 @@ jobs:
     name: Check REUSE
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: REUSE Compliance Check
-        uses: fsfe/reuse-action@v1
+        uses: fsfe/reuse-action@v6
