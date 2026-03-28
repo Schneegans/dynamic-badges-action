@@ -71,7 +71,7 @@ However, this is especially great in SVG mode which does not support icons. Here
 
 ```yml
 - name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.7.0
+  uses: schneegans/dynamic-badges-action@v1.8.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
@@ -99,10 +99,10 @@ Embed the badge with:
 
 ### Optional Input Parameters
 
-| Parameter     | Description                                                                                                                                                                  | Supported in SVG Mode |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| Parameter     | Description                                                                                                                                                                           | Supported in SVG Mode |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `host`        | Default is `https://api.github.com/gists/`. You can change this if you're using GitHub enterprise. The URL will be something like `https://github-enterprise-hostname/api/v3/gists/`. | ✅                    |
-| `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change.                                                                           | ✅                    |
+| `forceUpdate` | Default is `false`. If set to `true`, the gist will be updated even if the content did not change.                                                                                    | ✅                    |
 
 ### Shields.io Parameters (optional)
 
@@ -163,7 +163,7 @@ For all values in between, the color will be interpolated.
 - name: Get the Numbers
   run: echo "ANSWER=42" >> $GITHUB_ENV
 - name: Create the Badge
-  uses: schneegans/dynamic-badges-action@v1.7.0
+  uses: schneegans/dynamic-badges-action@v1.8.0
   with:
     auth: ${{ secrets.GIST_SECRET }}
     gistID: <gist-ID>
