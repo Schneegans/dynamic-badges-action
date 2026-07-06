@@ -16,6 +16,8 @@ function getHeaders() {
   return new Headers([
     ["Content-Type", "application/json"],
     ["User-Agent", "Schneegans"],
+    ["Accept", "application/vnd.github+json"],
+    ["X-GitHub-Api-Version", "2026-03-10"],
     ["Authorization", `Bearer ${core.getInput("auth")}`],
   ]);
 }
@@ -40,6 +42,12 @@ async function updateGist(body) {
 
 // Top-level async runner block to prevent the Node process from dying early
 async function run() {
+  const auth = core.getInput("auth");
+
+  if (typeof auth !== 'string' || auth.trim() === '') {
+    throw new Error("Missing auth secret");
+  }
+  
   try {
     let data = {
       label: core.getInput("label"),
