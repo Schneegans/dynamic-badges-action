@@ -42,13 +42,13 @@ async function updateGist(body) {
 
 // Top-level async runner block to prevent the Node process from dying early
 async function run() {
-  const auth = core.getInput("auth");
-
-  if (typeof auth !== 'string' || auth.trim() === '') {
-    throw new Error("Missing auth secret");
-  }
-  
   try {
+    const auth = core.getInput("auth");
+
+    if (typeof auth !== 'string' || auth.trim() === '') {
+      throw new Error("Missing auth secret");
+    }
+    
     let data = {
       label: core.getInput("label"),
       message: core.getInput("message"),
