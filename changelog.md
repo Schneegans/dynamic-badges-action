@@ -5,9 +5,18 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Changelog of the Dynamic Badges Action
 
+## [Dynamic Badges Action 1.9.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.9.0)
+
+**Release Date:** 2026-07-10
+
+#### Changes
+
+- Migrated gist updates to the latest GitHub API conventions (2026): updated request method, versioning, and auth/header format to stay compatible with current REST behavior. Thanks to [@pionl](https://github.com/pionl) for this contribution!
+- Improved action reliability and execution flow: refactored to consistent async/await with proper waiting on network updates, reducing timing-related failures. Thanks to [@pionl](https://github.com/pionl) for this contribution!
+
 ## [Dynamic Badges Action 1.8.0](https://github.com/Schneegans/dynamic-badges-action/tree/v1.8.0)
 
-**Release Date:** 2025-03-28
+**Release Date:** 2026-03-28
 
 #### Changes
 
